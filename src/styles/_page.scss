@@ -1,0 +1,18 @@
+.hero {
+  position: relative;
+  img {
+    display: flex;
+  }
+  .heading {
+    position: absolute;
+    top: 70%;
+    transform: translateY(-50%);
+    font-size: 36*$px;
+    font-weight: bold;
+    color: #fff;
+    z-index: 9;
+  }
+  .filter-1 {
+    background-color: rgba(#fff, 0.3);
+  }
+}
