@@ -1,33 +1,45 @@
 <template>
   <Layout>
-
-    <!-- Learn how to use images here: https://gridsome.org/docs/images -->
-    <g-image alt="Example image" src="~/favicon.png" width="135" />
-
-    <h1>Hello, world!</h1>
-
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur excepturi labore tempore expedita, et iste tenetur suscipit explicabo! Dolores, aperiam non officia eos quod asperiores
-    </p>
-
-    <p class="home-links">
-      <a href="https://gridsome.org/docs/" target="_blank" rel="noopener">Gridsome Docs</a>
-      <a href="https://github.com/gridsome/gridsome" target="_blank" rel="noopener">GitHub</a>
-    </p>
-
+    <div class="hero">
+      <g-image :src="node.heroImage.file.url" />
+      <div class="container">
+        <h2 class="heading">{{ node.heroCopy }}</h2>
+      </div>
+      <div class="filter filter-1"></div>
+    </div>
+    <div class="container">
+      <p style="margin-top: 70px;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum ipsa minima, praesentium tenetur porro nisi, perferendis quasi libero vel accusamus, quae eligendi illo esse iusto nihil culpa repellendus itaque fugit voluptate eveniet maxime soluta reprehenderit quam nulla. Accusamus blanditiis corporis non quaerat inventore eaque modi? Quo, neque pariatur sed earum ratione aspernatur. Maxime dolore cum deleniti quas blanditiis, repudiandae minima?</p>
+    </div>
   </Layout>
 </template>
 
+<page-query>
+{
+  allContentfulHomePage {
+    edges {
+      node {
+        heroCopy
+        heroImage {
+          file {
+            url
+          }
+        }
+      }
+    }
+  }
+}
+</page-query>
+
 <script>
 export default {
-  metaInfo: {
-    title: 'Hello, world!'
-  }
+  computed: {
+    node() {
+      return this.$page.allContentfulHomePage.edges[0].node;
+    }
+  },
+  // metaInfo: {
+  //   title: 'Hello, world!'
+  // }
 }
 </script>
 
-<style>
-.home-links a {
-  margin-right: 1rem;
-}
-</style>

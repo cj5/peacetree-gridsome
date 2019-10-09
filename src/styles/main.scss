@@ -2,28 +2,20 @@
 @import 'mixins';
 @import 'container';
 @import 'fonts';
-@import '~swiper/dist/css/swiper';
 
 body {
   margin: 0;
 }
 #app {
-  font-family: $font-2;
-  font-size: 16px;
+  font-family: $font-body;
+  font-size: 16*$px;
   font-weight: normal;
-  line-height: 1.35;
-  color: $color-1;
+  line-height: 1.5;
+  color: $black;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   @import 'global';
+  @import 'page';
   @import 'header-footer';
-  @import 'pages/p1-landing';
-  @import 'pages/p2-about';
-  @import 'pages/p3-portfolio';
-  @import 'pages/p4-products';
-  @import 'pages/p5-product-single';
-  @import 'pages/p6-press';
-  @import 'pages/p7-details';
-  @import 'pages/p8-contact';
 }

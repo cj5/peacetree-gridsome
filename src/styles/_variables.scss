@@ -9,13 +9,13 @@ $px: 0.0625rem;
 // STABLE
 // ------
 
-$font-1: 'MrsEaves', Helvetica, Arial, sans-serif;
-$font-2: 'Arial Regular', Helvetica, sans-serif;
+$font-heading: 'IBM Plex Serif', Helvetica, Arial, sans-serif;
+$font-body: 'Poppins', Helvetica, sans-serif;
 $font-icons: 'Icons';
 
-$color-1: #1c1b1c;
-$color-2: #8B734D;
-$color-2-dk: darken($color-2, 30%);
+$black: #1c1b1c;
+$color-1: #52a0ba;
+$color-1-dk: darken($color-1, 10%);
 $color-error: #d10800;
 $gray-90: darken(#fff, 90%);
 $gray-80: darken(#fff, 80%);

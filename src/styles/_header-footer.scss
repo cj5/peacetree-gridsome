@@ -1,0 +1,51 @@
+// ==================
+// HEADER
+.header {
+  position: relative;
+  border-top: 5*$px solid $color-1;
+  box-shadow: 0 3*$px 5*$px 0 rgba(#000, 0.1);
+  z-index: 999;
+}
+.header-wrap {
+  height: 100*$px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-family: $font-heading;
+  font-weight: bold;
+  font-size: 24*$px;
+  font-style: italic;
+  a {
+    color: $color-1-dk;
+  }
+}
+.nav {
+  ul {
+    display: flex;
+  }
+  li {
+    margin-left: 30*$px;
+    margin-bottom: 0;
+    &:first-of-type {
+      margin-left: 0;
+    }
+  }
+  a {
+    font-weight: bold;
+    color: $color-1-dk;
+  }
+}
+
+// ==================
+// FOOTER
+.footer {
+  border-top: 2*$px solid $color-1;
+  margin-top: 70*$px;
+  padding: 50*$px 0;
+  // background-color: $gray-5;
+  p {
+    margin: 0;
+  }
+}
