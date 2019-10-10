@@ -1,3 +1,6 @@
+main {
+  margin-top: $header-ht;
+}
 .hero {
   position: relative;
   img {
@@ -5,11 +8,13 @@
   }
   .heading {
     position: absolute;
-    top: 70%;
+    top: 75%;
     transform: translateY(-50%);
-    font-size: 36*$px;
-    font-weight: bold;
+    font-family: 'Oleo Script';
+    // font-weight: bold;
+    font-size: 42*$px;
     color: #fff;
+    text-shadow: 2*$px 2*$px 2*$px $gray-70;
     z-index: 9;
   }
   .filter-1 {

@@ -20,3 +20,8 @@
     }
   }
 }
+
+@mixin logo-height($h) {
+  width: $h * 0.768;
+  height: $h;
+}
