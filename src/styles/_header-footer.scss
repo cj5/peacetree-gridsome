@@ -6,7 +6,8 @@
   left: 0;
   width: 100%;
   background-color: #fff;
-  border-top: 3*$px solid $color-1;
+  // border-top: 3*$px solid $color-1;
+  border-bottom: 2*$px solid $color-1;
   box-shadow: 0 3*$px 5*$px 0 rgba(#000, 0.1);
   z-index: 999;
 }
@@ -21,15 +22,13 @@
     height: $header-ht;
     display: flex;
     align-items: center;
+    color: $color-1-dk;
     @include transition;
     .site-name {
       font-family: $font-heading;
       font-family: 'Oleo Script';
       font-size: 24*$px;
       margin: 0 0 0 15*$px;
-    }
-    a {
-      color: $color-1-dk;
     }
     img {
       @include transition;
@@ -55,6 +54,9 @@
     font-size: 18*$px;
     font-weight: bold;
     color: $color-1-dk;
+    &.active {
+      color: $color-main;
+    }
   }
 }
 
@@ -62,7 +64,6 @@
 // FOOTER
 .footer {
   border-top: 2*$px solid $color-1;
-  margin-top: 70*$px;
   padding: 50*$px 0;
   p {
     margin: 0;

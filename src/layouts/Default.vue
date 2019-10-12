@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="layout" :class="shortHeader">
+  <div id="app" class="layout" :class="this.shortHeader">
     <Header />
     <main role="main">
       <slot />
@@ -7,6 +7,23 @@
     <Footer />
   </div>
 </template>
+
+<page-query>
+{
+  allContentfulStaticGlobal {
+    edges {
+      node {
+        companyName
+        companyLogo {
+          file {
+            url
+          }
+        }
+      }
+    }
+  }
+}
+</page-query>
 
 <script>
 import Header from '../components/Header'
@@ -25,9 +42,7 @@ export default {
   },
   methods: {
     isShortHeader() {
-      let scroll = window.pageYOffset
-      console.log(scroll)
-      if (scroll > 100) {
+      if (window.pageYOffset > 100) {
         this.shortHeader = 'short-header'
       } else {
         this.shortHeader = ''

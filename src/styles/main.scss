@@ -8,10 +8,10 @@ body {
 }
 #app {
   font-family: $font-body;
-  font-size: 16*$px;
+  font-size: 18*$px;
   font-weight: normal;
   line-height: 1.5;
-  color: $black;
+  color: $color-main;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

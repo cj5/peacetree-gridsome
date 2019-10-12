@@ -1,23 +1,67 @@
 main {
   margin-top: $header-ht;
 }
-.hero {
-  position: relative;
-  img {
+.home-page {
+  .hero {
+    position: relative;
+    margin-bottom: 80*$px;
+    img {
+      display: flex;
+    }
+    .heading {
+      position: absolute;
+      top: 75%;
+      transform: translateY(-50%);
+      font-family: $font-alt;
+      font-size: 42*$px;
+      color: #fff;
+      text-shadow: 2*$px 2*$px 2*$px $gray-70;
+      z-index: 9;
+    }
+  }
+  .home-copy {
+    font-size: 20*$px;
+    img {
+      position: relative;
+      top: 2*$px;
+      max-width: 20*$px;
+    }
+  }
+  .locations {
+    position: relative;
+    background-image: url('../images/bg.png');
+    margin-top: 80*$px;
+    padding: 60*$px 0 80*$px 0;
+    border-top: 2*$px solid $gray-5;
+    border-bottom: 2*$px solid $gray-5;
+    *:not(.filter) {
+      position: relative;
+      z-index: 9;
+    }
+    .flex-grid {
+      @include flex-grid(2, 80*$px);
+    }
+    [class*='heading'] {
+      margin-bottom: 40*$px;
+    }
+    .subheading {
+      margin-bottom: 20*$px;
+      font-size: 28*$px;
+    }
+    .map-wrap {
+      display: flex;
+      border: 2*$px solid $gray-20;
+      box-shadow: 2*$px 2*$px 6*$px $gray-20;
+    }
+    .filter {
+      @include filter(#fff, 0.3);
+    }
+  }
+  .location-image {
+    position: relative;
     display: flex;
-  }
-  .heading {
-    position: absolute;
-    top: 75%;
-    transform: translateY(-50%);
-    font-family: 'Oleo Script';
-    // font-weight: bold;
-    font-size: 42*$px;
-    color: #fff;
-    text-shadow: 2*$px 2*$px 2*$px $gray-70;
-    z-index: 9;
-  }
-  .filter-1 {
-    background-color: rgba(#fff, 0.3);
+    .filter {
+      @include filter(#fff, 0);
+    }
   }
 }

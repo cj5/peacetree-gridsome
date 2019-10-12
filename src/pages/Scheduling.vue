@@ -6,6 +6,23 @@
   </Layout>
 </template>
 
+<page-query>
+{
+  allContentfulStaticGlobal {
+    edges {
+      node {
+        companyName
+        companyLogo {
+          file {
+            url
+          }
+        }
+      }
+    }
+  }
+}
+</page-query>
+
 <script>
 export default {
   metaInfo: {

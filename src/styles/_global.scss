@@ -2,7 +2,6 @@ h1,
 h2,
 h3,
 h4,
-p,
 a,
 li {
   margin: 0;
@@ -29,6 +28,12 @@ h3 {
 h4 {
   font-size: $fz-md;
 }
+p {
+  margin: 0 0 30*$px;
+  &:last-of-type {
+    margin: 0;
+  }
+}
 a {
   position: relative;
   display: inline-block;
@@ -50,7 +55,7 @@ a {
     width: 100%;
   }
   &.active:after {
-    background-color: $color-1;
+    background-color: $color-main;
     width: 100%;
     height: 2*$px;
   }
@@ -65,7 +70,6 @@ li {
   margin: 0;
   padding: 0;
 }
-p,
 li {
   margin-bottom: 10px;
 }
@@ -76,7 +80,7 @@ img {
 
 &.short-header {
   .header-wrap {
-    height: 70px;
+    height: $short-header-ht;
     .logo img {
       @include logo-height(50*$px);
     }
@@ -87,12 +91,29 @@ img {
   padding-top: 50*$px;
 }
 
+.font-heading { font-family: $font-heading !important; }
+.font-body { font-family: $font-body !important; }
+.font-alt { font-family: $font-alt !important; }
+
+.color-1 { color: $color-1 !important; }
+.color-1-dk { color: $color-1-dk !important; }
+.color-main { color: $color-main !important; }
+
+.bold { font-weight: bold !important; }
+.italic { font-style: italic; }
+
+.heading-2 {
+  color: $color-1-dk;
+  font-family: $font-alt;
+}
+
 .filter {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  @include filter;
 }
 
 .btn {
@@ -121,6 +142,11 @@ img {
     background-color: $color-1;
     color: #fff;
   }
+}
+
+.attention {
+  color: $color-attention;
+  font-weight: bold;
 }
 
 .flex {
@@ -156,4 +182,9 @@ img {
 
 .bold {
   font-weight: bold;
+}
+
+.copy-mxw {
+  max-width: 800*$px;
+  margin: 0 auto;
 }

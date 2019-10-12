@@ -25,3 +25,7 @@
   width: $h * 0.768;
   height: $h;
 }
+
+@mixin filter($color: #fff, $opacity: 0.3) {
+  background-color: rgba($color, $opacity);
+}

@@ -3,8 +3,8 @@
     <div class="container">
       <div class="header-wrap">
         <g-link to="/" class="logo no-active-style">
-          <g-image src="../images/logo.png" />
-          <h1 class="site-name">{{ $static.metadata.siteName }}</h1>
+          <g-image :src="staticGlobal.companyLogo.file.url" />
+          <h1 class="site-name">{{ staticGlobal.companyName }}</h1>
         </g-link>
         <nav class="nav">
           <ul>
@@ -20,16 +20,30 @@
   </header>
 </template>
 
-<static-query>
-query {
-  metadata {
-    siteName
+<page-query>
+{
+  allContentfulStaticGlobal {
+    edges {
+      node {
+        companyName
+        companyLogo {
+          file {
+            url
+          }
+        }
+      }
+    }
   }
 }
-</static-query>
+</page-query>
 
 <script>
 export default {
-  name: 'Header'
+  name: 'Header',
+  computed: {
+    staticGlobal() {
+      return this.$page.allContentfulStaticGlobal.edges[0].node;
+    }
+  }
 }
 </script>
