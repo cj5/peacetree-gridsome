@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div class="container header-pad">
-      <h1>Scheduling</h1>
+      <h1 class="heading">Scheduling</h1>
     </div>
   </Layout>
 </template>

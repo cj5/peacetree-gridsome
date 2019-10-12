@@ -8,7 +8,7 @@ main {
     img {
       display: flex;
     }
-    .heading {
+    .hero-heading {
       position: absolute;
       top: 75%;
       transform: translateY(-50%);
@@ -20,12 +20,15 @@ main {
     }
   }
   .home-copy {
-    font-size: 20*$px;
     img {
       position: relative;
       top: 2*$px;
       max-width: 20*$px;
     }
+  }
+  .attention {
+    color: $color-1;
+    font-weight: 600;
   }
   .locations {
     position: relative;
@@ -51,7 +54,7 @@ main {
     .map-wrap {
       display: flex;
       border: 2*$px solid $gray-20;
-      box-shadow: 2*$px 2*$px 6*$px $gray-20;
+      @include box-shadow;
     }
     .filter {
       @include filter(#fff, 0.3);
@@ -62,6 +65,136 @@ main {
     display: flex;
     .filter {
       @include filter(#fff, 0);
+    }
+  }
+}
+
+.providers-page {
+  .scroll {
+    margin-top: 20*$px;
+    font-weight: bold;
+    &:after {
+      height: 0;
+    }
+    &:hover {
+      color: $gray-60;
+    }
+  }
+  .providers-section {
+    position: relative;
+    background-image: url('../images/bg.png');
+    margin: 50*$px 0 0;
+    padding: 80*$px 0;
+    border-top: 2*$px solid $gray-5;
+  }
+  .providers-grid {
+    @include flex-grid(3, 20*$px);
+    position: relative;
+    z-index: 9;
+  }
+  .provider-module {
+    padding: 20*$px;
+    background-color: #fff;
+    border: 2*$px solid $gray-30;
+    @include box-shadow;
+    &:after {
+      background-color: $gray-30;
+    }
+    &:hover {
+      border-color: $gray-80;
+      @include box-shadow(0, 0, transparent);
+      &:after {
+        background-color: $gray-80;
+      }
+    }
+    img {
+      border: 1*$px solid $gray-20;
+    }
+  }
+  .provider-name {
+    font-size: 24*$px;
+    font-weight: bold;
+    color: $color-1-dk;
+    margin: 10*$px 0 12*$px;
+    padding-bottom: 14*$px;
+    border-bottom: 1*$px solid $gray-20;
+  }
+  .provider-creds {
+    font-size: 14*$px;
+    color: $gray-60;
+    margin-left: 8*$px;
+  }
+  .provider-position {
+    font-size: 18*$px;
+    font-weight: bold;
+    line-height: 1.1;
+    font-style: italic;
+    color: $color-main;
+    margin-bottom: 10*$px;
+  }
+  .provider-location {
+    font-size: 16*$px;
+    color: $gray-60;
+  }
+}
+
+.provider-page {
+  .provider-creds {
+    font-size: 18*$px;
+    margin-left: 14*$px;
+    color: $color-1-dk;
+  }
+  .pronouns-heading,
+  .pronouns {
+    font-size: 16*$px;
+    color: $gray-60;
+  }
+  .pronouns {
+    font-weight: bold;
+  }
+  .provider-background {
+    margin-top: 30*$px;
+    .content-wrap {
+      display: flex;
+      * {
+        flex-basis: 100%;
+      }
+    }
+    .img-wrap {
+      display: flex;
+      max-width: 270*$px;
+      margin-right: 50*$px;
+      border: 1*$px solid $gray-20;
+    }
+  }
+  .provider-info {
+    position: relative;
+    margin-top: 50*$px;
+    padding: 70*$px 0;
+    background-image: url('../images/bg.png');
+    border-top: 2*$px solid $gray-5;
+    *:not(.filter) {
+      position: relative;
+      z-index: 9;
+    }
+    .info-item {
+      border: 2*$px solid $gray-20;
+      background-color: #fff;
+      padding: 20*$px;
+      margin-bottom: 40*$px;
+      @include box-shadow;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+      p {
+        font-size: 18*$px;
+      }
+    }
+    .subheading {
+      font-size: 28*$px;
+      font-style: italic;
+      color: $color-1-dk;
+      margin-bottom: 20*$px;
     }
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div class="container header-pad">
-      <h1>Employment</h1>
+      <h1 class="heading">Employment</h1>
     </div>
   </Layout>
 </template>

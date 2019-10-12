@@ -29,3 +29,11 @@
 @mixin filter($color: #fff, $opacity: 0.3) {
   background-color: rgba($color, $opacity);
 }
+
+@mixin box-shadow(
+  $offset: 2*$px,
+  $blur: 6*$px,
+  $color: $gray-20
+) {
+  box-shadow: $offset $offset $blur $color;
+}

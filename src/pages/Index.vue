@@ -1,22 +1,24 @@
 <template>
   <Layout>
     <div class="home-page">
-      <div class="hero">
+      <section class="hero">
         <g-image :src="staticHome.heroImage.file.url" />
         <div class="container">
-          <h2 class="heading">{{ staticHome.heroHeading }}</h2>
+          <h2 class="hero-heading">{{ staticHome.heroHeading }}</h2>
         </div>
         <div class="filter"></div>
-      </div>
-      <div class="container">
-        <div class="home-copy copy-mxw">
-          <p v-for="(i, key) in $page.allContentfulDynamicHomeParagraph.edges" :key="key">
-            <span v-html="i.node.paragraph"></span>
-          </p>
-          <p class="attention">{{ staticHome.attentionCopy }}</p>
+      </section>
+      <section class="home-copy">
+        <div class="container">
+          <div class="mxw-800">
+            <p v-for="(i, key) in $page.allContentfulDynamicHomeParagraph.edges" :key="key">
+              <span v-html="i.node.paragraph"></span>
+            </p>
+            <p class="attention">{{ staticHome.attentionCopy }}</p>
+          </div>
         </div>
-      </div>
-      <div class="locations">
+      </section>
+      <section class="locations">
         <div class="container">
           <h2 class="heading-2">{{ staticLocation.locationsHeading }}</h2>
           <div class="flex-grid">
@@ -53,11 +55,11 @@
           </div>
         </div>
         <div class="filter"></div>
-      </div>
-      <div class="location-image">
+      </section>
+      <section class="location-image">
         <g-image :src="staticLocation.locationImage.file.url" />
         <div class="filter"></div>
-      </div>
+      </section>
     </div>
   </Layout>
 </template>
@@ -117,10 +119,11 @@
       }
     }
   }
-  allContentfulDynamicHomeParagraph(order: ASC) {
+  allContentfulDynamicHomeParagraph(sortBy: "order", order: ASC) {
     edges {
       node {
         paragraph
+        order
       }
     }
   }
@@ -131,10 +134,10 @@
 export default {
   computed: {
     staticHome() {
-      return this.$page.allContentfulStaticHomePage.edges[0].node;
+      return this.$page.allContentfulStaticHomePage.edges[0].node
     },
     staticLocation() {
-      return this.$page.allContentfulStaticLocationInfo.edges[0].node;
+      return this.$page.allContentfulStaticLocationInfo.edges[0].node
     }
   },
   mounted() {

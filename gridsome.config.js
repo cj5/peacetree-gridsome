@@ -13,5 +13,8 @@ module.exports = {
         typeName: 'Contentful'
       }
     }
-  ]
+  ],
+  templates: {
+    ContentfulDynamicProvider: '/providers/:title'
+  }
 }

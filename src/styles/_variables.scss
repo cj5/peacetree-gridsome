@@ -1,21 +1,14 @@
-// VARIABLE
-// --------
-
 $px: 0.0625rem;
 
 $header-ht: 100*$px;
 $short-header-ht: 70*$px;
 
-
-// ==================
-
-// STABLE
-// ------
-
+// FONTS
 $font-heading: 'Questrial', Helvetica, Arial, sans-serif;
 $font-body: 'Questrial', Helvetica, sans-serif;
 $font-alt: 'Oleo Script', Helvetica, Arial, sans-serif;
 
+// COLORS
 $gray-90: darken(#fff, 90%);
 $gray-80: darken(#fff, 80%);
 $gray-70: darken(#fff, 70%);
@@ -31,13 +24,14 @@ $color-1: #52a0ba;
 $color-1-dk: darken($color-1, 10%);
 $color-attention: darken(red, 5%);
 
-$fz-xxl: 50px;
-$fz-xl: 44px;
+// FONT SIZING
+$fz-xxl: 42px;
+$fz-xl: 36px;
 $fz-lg: 32px;
-$fz-md: 22px;
-$fz-sm: 20px;
-$fz-xs: 16px;
-$fz-xxs: 14px;
+$fz-md: 28px;
+$fz-sm: 24px;
+$fz-xs: 20px;
+$fz-xxs: 16px;
 
 $fz:
   'xxl' $fz-xxl,
@@ -55,7 +49,7 @@ $fz:
   }
 }
 
-// Breakpoints
+// BREAKPOINTS
 $vpw-xl: 1200px;
 $vpw-lg: 992px;
 $vpw-md: 768px;
@@ -65,7 +59,7 @@ $vpw-xs: 400px;
 $vpw-nav: $vpw-lg;
 $mxw-nav: '(max-width: #{$vpw-nav - 1px})';
 
-// media queries
+// MEDIA QUERIES
 $mxw-xl: '(max-width: #{$vpw-xl - 1px})';
 $mxw-lg: '(max-width: #{$vpw-lg - 1px})';
 $mxw-md: '(max-width: #{$vpw-md - 1px})';

@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div class="container header-pad">
-      <h1>Contact</h1>
+      <h1 class="heading">Contact</h1>
     </div>
   </Layout>
 </template>
