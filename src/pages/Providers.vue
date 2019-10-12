@@ -14,7 +14,7 @@
           </div>
         </div>
       </section>
-      <section class="providers-section" id="providers">
+      <section class="providers-section">
         <div class="container">
           <div class="providers-grid">
 
@@ -95,52 +95,144 @@ export default {
   mounted() {
     console.log(JSON.stringify(this.providers, null, 2))
 
-    const easeInCubic = function (t) { return t*t*t }
-    const scrollElems = document.getElementsByClassName('scroll');
+    const headerOffset = 72
+    const scrollTrigger = document.querySelector('.scroll')
+    const scrollDestination = document.querySelector('.providers-section')
 
-    //console.log(scrollElems);
-    const scrollToElem = (start, stamp, duration, scrollEndElemTop, startScrollOffset) => {
-      //debugger;
-      const runtime = stamp - start;
-      let progress = runtime / duration;
-      const ease = easeInCubic(progress);
+    function smoothScroll(destination, duration = 200, easing = 'easeInOutQuad', callback) {
 
-      progress = Math.min(progress, 1);
-      console.log(startScrollOffset,startScrollOffset + (scrollEndElemTop * ease));
+      const easings = {
+        linear(t) {
+          return t;
+        },
+        easeInQuad(t) {
+          return t * t;
+        },
+        easeOutQuad(t) {
+          return t * (2 - t);
+        },
+        easeInOutQuad(t) {
+          return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+        },
+        easeInCubic(t) {
+          return t * t * t;
+        },
+        easeOutCubic(t) {
+          return (--t) * t * t + 1;
+        },
+        easeInOutCubic(t) {
+          return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+        },
+        easeInQuart(t) {
+          return t * t * t * t;
+        },
+        easeOutQuart(t) {
+          return 1 - (--t) * t * t * t;
+        },
+        easeInOutQuart(t) {
+          return t < 0.5 ? 8 * t * t * t * t : 1 - 8 * (--t) * t * t * t;
+        },
+        easeInQuint(t) {
+          return t * t * t * t * t;
+        },
+        easeOutQuint(t) {
+          return 1 + (--t) * t * t * t * t;
+        },
+        easeInOutQuint(t) {
+          return t < 0.5 ? 16 * t * t * t * t * t : 1 + 16 * (--t) * t * t * t * t;
+        }
+      };
 
-      const newScrollOffset = startScrollOffset + (scrollEndElemTop * ease);
-      window.scroll(0, (startScrollOffset - 72) + (scrollEndElemTop * ease));
+      const start = window.pageYOffset;
+      const startTime = 'now' in window.performance ? performance.now() : new Date().getTime();
 
-      if(runtime < duration){
-        requestAnimationFrame((timestamp) => {
-          const stamp = new Date().getTime();
-          scrollToElem(start, stamp, duration, scrollEndElemTop, startScrollOffset);
-        })
+      const documentHeight = Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
+      const destinationOffset = typeof destination === 'number' ? destination : destination.offsetTop - headerOffset;
+      const destinationOffsetToScroll = Math.round(documentHeight - destinationOffset < windowHeight ? documentHeight - windowHeight : destinationOffset);
+
+      if ('requestAnimationFrame' in window === false) {
+        window.scroll(0, destinationOffsetToScroll);
+        if (callback) {
+          callback();
+        }
+        return;
       }
+
+      function scroll() {
+        const now = 'now' in window.performance ? performance.now() : new Date().getTime();
+        const time = Math.min(1, ((now - startTime) / duration));
+        const timeFunction = easings[easing](time);
+        window.scroll(0, Math.ceil((timeFunction * (destinationOffsetToScroll - start)) + start));
+
+        if (window.pageYOffset === destinationOffsetToScroll) {
+          if (callback) {
+            callback();
+          }
+          return;
+        }
+
+        requestAnimationFrame(scroll);
+      }
+
+      scroll();
     }
 
-    for(let i = 0; i < scrollElems.length; i++) {
-      const elem = scrollElems[i];
+    scrollTrigger.addEventListener('click', () => smoothScroll(scrollDestination));
 
-      elem.addEventListener('click',function(e) {
-        e.preventDefault();
-        const scrollElemId = e.target.href.split('#')[1];
-        const scrollEndElem = document.getElementById(scrollElemId);
 
-        const anim = requestAnimationFrame(() => {
-          const stamp = new Date().getTime();
-          const duration = 300;
-          const start = stamp;
 
-          const startScrollOffset = window.pageYOffset;
 
-          const scrollEndElemTop = scrollEndElem.getBoundingClientRect().top;
 
-          scrollToElem(start, stamp, duration, scrollEndElemTop, startScrollOffset);
-          // scrollToElem(scrollEndElemTop);
-        })
-      })
-    }
+
+    // OLD SCROLL FN
+    // const easeInCubic = function (t) { return t*t*t }
+    // const scrollElems = document.getElementsByClassName('scroll');
+
+    // //console.log(scrollElems);
+    // const scrollToElem = (start, stamp, duration, scrollEndElemTop, startScrollOffset) => {
+    //   //debugger;
+    //   const runtime = stamp - start;
+    //   let progress = runtime / duration;
+    //   const ease = easeInCubic(progress);
+
+    //   progress = Math.min(progress, 1);
+    //   console.log(startScrollOffset,startScrollOffset + (scrollEndElemTop * ease));
+
+    //   const newScrollOffset = startScrollOffset + (scrollEndElemTop * ease);
+    //   window.scroll(0, (startScrollOffset - 72) + (scrollEndElemTop * ease));
+
+    //   if(runtime < duration){
+    //     requestAnimationFrame((timestamp) => {
+    //       const stamp = new Date().getTime();
+    //       scrollToElem(start, stamp, duration, scrollEndElemTop, startScrollOffset);
+    //     })
+    //   }
+    // }
+
+    // for(let i = 0; i < scrollElems.length; i++) {
+    //   const elem = scrollElems[i];
+
+    //   elem.addEventListener('click',function(e) {
+    //     e.preventDefault();
+    //     const scrollElemId = e.target.href.split('#')[1];
+    //     const scrollEndElem = document.getElementById(scrollElemId);
+
+    //     const anim = requestAnimationFrame(() => {
+    //       const stamp = new Date().getTime();
+    //       const duration = 300;
+    //       const start = stamp;
+
+    //       const startScrollOffset = window.pageYOffset;
+
+    //       const scrollEndElemTop = scrollEndElem.getBoundingClientRect().top;
+
+    //       scrollToElem(start, stamp, duration, scrollEndElemTop, startScrollOffset);
+    //       // scrollToElem(scrollEndElemTop);
+    //     })
+    //   })
+    // }
+    // END
   },
   metaInfo: {
     title: 'Providers'
