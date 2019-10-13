@@ -30,8 +30,9 @@
       <section class="provider-info">
         <div class="container">
           <div class="info-item mxw-800">
-            <h2 class="subheading">{{ staticProvider.providerLocationHeading }}</h2>
-            <p>{{ provider.providerLocation }}</p>
+            <h2 class="subheading">{{ staticProvider.providerLocationHeading }}<span v-if="isMultipleLocations(provider.providerLocation)">s</span></h2>
+            <p v-if="provider.providerLocationCustom" v-html="provider.providerLocationCustom"></p>
+            <p v-else>{{ provider.providerLocation }}</p>
           </div>
           <div class="info-item mxw-800">
             <h2 class="subheading">{{ staticProvider.providerPopulationsHeading }}</h2>
@@ -61,6 +62,7 @@ query DynamicProvider($path: String!) {
     providerPronouns
     providerBackground
     providerLocation
+    providerLocationCustom
     providerPopulationsServed
     providerSpecialInterests
   }
@@ -98,6 +100,11 @@ export default {
     },
     staticProvider() {
       return this.$page.allContentfulStaticProviderPage.edges[0].node
+    }
+  },
+  methods: {
+    isMultipleLocations(str) {
+      return str.indexOf(' ') >= 0
     }
   }
 }

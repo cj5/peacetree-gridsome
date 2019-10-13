@@ -24,32 +24,42 @@
           <div class="flex-grid">
             <div class="item item-1">
               <h3 class="subheading">{{ staticLocation.location1City }}</h3>
-              <div class="map-wrap">
-                <iframe 
-                width="100%" 
-                height="400" 
-                frameborder="0" 
-                scrolling="no" 
-                marginheight="0" 
-                marginwidth="0" 
-                :src="`https://maps.google.com/maps?q=${staticLocation.location1Map.lat},${staticLocation.location1Map.lon}&hl=es;z=14&amp;output=embed`"
-                >
-                </iframe>
+              <div class="map">
+                <div class="map-wrap">
+                  <iframe 
+                    width="100%" 
+                    height="400" 
+                    frameborder="0" 
+                    scrolling="no" 
+                    marginheight="0" 
+                    marginwidth="0" 
+                    :src="`https://maps.google.com/maps?q=${staticLocation.location1Map.lat},${staticLocation.location1Map.lon}&hl=es;z=14&amp;output=embed`"
+                  >
+                  </iframe>
+                </div>
+                <div class="filter">
+                  <p>Map loading...</p>
+                </div>
               </div>
             </div>
             <div class="item item-2">
               <h3 class="subheading">{{ staticLocation.location2City }}</h3>
-              <div class="map-wrap">
-                <iframe 
-                width="100%" 
-                height="400" 
-                frameborder="0" 
-                scrolling="no" 
-                marginheight="0" 
-                marginwidth="0" 
-                :src="`https://maps.google.com/maps?q=${staticLocation.location2Map.lat},${staticLocation.location2Map.lon}&hl=es;z=14&amp;output=embed`"
-                >
-                </iframe>
+              <div class="map">
+                <div class="map-wrap">
+                  <iframe 
+                    width="100%" 
+                    height="400" 
+                    frameborder="0" 
+                    scrolling="no" 
+                    marginheight="0" 
+                    marginwidth="0" 
+                    :src="`https://maps.google.com/maps?q=${staticLocation.location2Map.lat},${staticLocation.location2Map.lon}&hl=es;z=14&amp;output=embed`"
+                  >
+                  </iframe>
+                </div>
+                <div class="filter">
+                  <p>Map loading...</p>
+                </div>
               </div>
             </div>
           </div>

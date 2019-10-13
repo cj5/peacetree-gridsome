@@ -1,7 +1,11 @@
 <template>
   <Layout>
-    <div class="container header-pad">
-      <h1 class="heading">Scheduling</h1>
+    <div class="scheduling-page">
+      <section class="page-heading">
+        <div class="container">
+          <h1 class="heading">Scheduling</h1>
+        </div>
+      </section>
     </div>
   </Layout>
 </template>

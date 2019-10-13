@@ -42,7 +42,7 @@ export default {
   name: 'Header',
   computed: {
     staticGlobal() {
-      return this.$page.allContentfulStaticGlobal.edges[0].node;
+      return this.$page.allContentfulStaticGlobal.edges[0].node
     }
   }
 }
