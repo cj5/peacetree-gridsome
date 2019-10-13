@@ -76,6 +76,39 @@ query DynamicProvider($path: String!) {
       }
     }
   }
+  allContentfulStaticContactInfo {
+    edges {
+      node {
+        phoneNumber
+        faxNumber
+        emailAddress
+      }
+    }
+  }
+  allContentfulStaticFooter {
+    edges {
+      node {
+        link1Copy
+        link1Url
+        link2Copy
+        link2Url
+        link3Copy
+        link3Url
+      }
+    }
+  }
+  allContentfulStaticGlobal {
+    edges {
+      node {
+        companyName
+        companyLogo {
+          file {
+            url
+          }
+        }
+      }
+    }
+  }
   allContentfulStaticGlobal {
     edges {
       node {

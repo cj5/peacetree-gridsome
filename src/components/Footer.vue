@@ -14,28 +14,28 @@
               <div class="module-item">
                 <i class="fas fa-phone"></i>
                 <p>Phone: </p>
-                <a href="#">715-417-3241</a>
+                <a :href="`tel:${formatPhone(staticContact.phoneNumber)}`">{{ staticContact.phoneNumber }}</a>
               </div>
               <div class="module-item">
                 <i class="fas fa-fax"></i>
                 <p>Fax: </p>
-                <p>715-417-3243</p>
+                <p>{{ staticContact.faxNumber }}</p>
               </div>
               <div class="module-item">
                 <i class="fas fa-envelope"></i>
                 <p>Email: </p>
-                <a href="#">main@peacetreecounseling.com</a>
+                <a :href="`mailto:${staticContact.emailAddress}`">{{ staticContact.emailAddress }}</a>
               </div>
             </div>
             <div class="module">
               <div class="module-item">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSd2-2gSoGr_5JZCJsWu3J8ViGPkkKK7_0FxppQXOp3vZ-HhNw/viewform" target="_blank">Client Satisfaction Survey</a>
+                <a :href="staticFooter.link1Url" target="_blank">{{ staticFooter.link1Copy }}</a>
               </div>
               <div class="module-item">
-                <a href="https://app.procentive.com/clientportal2/" target="_blank">Client Portal</a>
+                <a :href="staticFooter.link2Url" target="_blank">{{ staticFooter.link2Copy }}</a>
               </div>
               <div class="module-item">
-                <a href="https://exchange.charter-business.net/owa/" target="_blank">Webmail</a>
+                <a :href="staticFooter.link3Url" target="_blank">{{ staticFooter.link3Copy }}</a>
               </div>
             </div>
           </div>
@@ -55,6 +55,27 @@
 
 <page-query>
 {
+  allContentfulStaticContactInfo {
+    edges {
+      node {
+        phoneNumber
+        faxNumber
+        emailAddress
+      }
+    }
+  }
+  allContentfulStaticFooter {
+    edges {
+      node {
+        link1Copy
+        link1Url
+        link2Copy
+        link2Url
+        link3Copy
+        link3Url
+      }
+    }
+  }
   allContentfulStaticGlobal {
     edges {
       node {
@@ -77,8 +98,19 @@ export default {
     staticGlobal() {
       return this.$page.allContentfulStaticGlobal.edges[0].node
     },
+    staticContact() {
+      return this.$page.allContentfulStaticContactInfo.edges[0].node
+    },
+    staticFooter() {
+      return this.$page.allContentfulStaticFooter.edges[0].node
+    },
     year() {
       return new Date().getFullYear()
+    }
+  },
+  methods: {
+    formatPhone(phone) {
+      return phone.replace(/\D/g,'')
     }
   }
 }

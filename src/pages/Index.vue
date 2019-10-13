@@ -38,7 +38,7 @@
                   </iframe>
                 </div>
                 <div class="filter">
-                  <p>Map loading...</p>
+                  <p>Loading map...</p>
                 </div>
               </div>
             </div>
@@ -58,7 +58,7 @@
                   </iframe>
                 </div>
                 <div class="filter">
-                  <p>Map loading...</p>
+                  <p>Loading map...</p>
                 </div>
               </div>
             </div>
@@ -117,6 +117,35 @@
       }
     }
   }
+  allContentfulDynamicHomeParagraph(sortBy: "order", order: ASC) {
+    edges {
+      node {
+        paragraph
+        order
+      }
+    }
+  }
+  allContentfulStaticContactInfo {
+    edges {
+      node {
+        phoneNumber
+        faxNumber
+        emailAddress
+      }
+    }
+  }
+  allContentfulStaticFooter {
+    edges {
+      node {
+        link1Copy
+        link1Url
+        link2Copy
+        link2Url
+        link3Copy
+        link3Url
+      }
+    }
+  }
   allContentfulStaticGlobal {
     edges {
       node {
@@ -126,14 +155,6 @@
             url
           }
         }
-      }
-    }
-  }
-  allContentfulDynamicHomeParagraph(sortBy: "order", order: ASC) {
-    edges {
-      node {
-        paragraph
-        order
       }
     }
   }

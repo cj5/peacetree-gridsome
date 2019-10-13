@@ -78,6 +78,39 @@
       }
     }
   }
+  allContentfulStaticContactInfo {
+    edges {
+      node {
+        phoneNumber
+        faxNumber
+        emailAddress
+      }
+    }
+  }
+  allContentfulStaticFooter {
+    edges {
+      node {
+        link1Copy
+        link1Url
+        link2Copy
+        link2Url
+        link3Copy
+        link3Url
+      }
+    }
+  }
+  allContentfulStaticGlobal {
+    edges {
+      node {
+        companyName
+        companyLogo {
+          file {
+            url
+          }
+        }
+      }
+    }
+  }
 }
 </page-query>
 
@@ -93,8 +126,6 @@ export default {
     }
   },
   mounted() {
-    console.log(JSON.stringify(this.providers, null, 2))
-
     const headerOffset = 72
     const scrollTrigger = document.querySelector('.scroll')
     const scrollDestination = document.querySelector('.providers-section')

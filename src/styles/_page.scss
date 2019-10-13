@@ -53,7 +53,7 @@ main {
     }
     .map {
       display: flex;
-      border: 2*$px solid $gray-20;
+      @include border;
       @include box-shadow;
       .map-wrap {
         position: relative;
@@ -108,7 +108,7 @@ main {
   .provider-module {
     padding: 20*$px;
     background-color: #fff;
-    border: 2*$px solid $gray-30;
+    @include border;
     @include box-shadow;
     &:after {
       background-color: $gray-30;
@@ -195,7 +195,7 @@ main {
       z-index: 9;
     }
     .info-item {
-      border: 2*$px solid $gray-20;
+      border: 2*$px solid $gray-30;
       background-color: #fff;
       padding: 20*$px;
       margin-bottom: 40*$px;

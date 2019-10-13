@@ -37,3 +37,7 @@
 ) {
   box-shadow: $offset $offset $blur $color;
 }
+
+@mixin border($thick: 2*$px, $color: $gray-20) {
+  border: $thick solid $color;
+}
