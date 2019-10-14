@@ -5,7 +5,7 @@ $header-ht: 100*$px;
 $short-header-ht: 70*$px;
 
 // FONTS
-$font-heading: 'Questrial', Helvetica, Arial, sans-serif;
+$font-heading: 'Lexend Deca', Helvetica, Arial, sans-serif;
 $font-body: 'Questrial', Helvetica, sans-serif;
 $font-alt: 'Oleo Script', Helvetica, Arial, sans-serif;
 
@@ -46,7 +46,7 @@ $fz:
 @each $i in $fz {
   .fz-#{nth($i, 1)} {
     font-size: nth($i, 2) !important;
-    line-height: nth($i, 2) + 4px !important;
+    line-height: nth($i, 2) + 8px !important;
   }
 }
 

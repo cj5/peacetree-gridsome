@@ -11,9 +11,7 @@
       <section class="home-copy">
         <div class="container">
           <div class="mxw-800">
-            <p v-for="(i, key) in $page.allContentfulDynamicHomeParagraph.edges" :key="key">
-              <span v-html="i.node.paragraph"></span>
-            </p>
+            <div v-html="staticHome.mainCopy"></div>
             <p class="attention">{{ staticHome.attentionCopy }}</p>
           </div>
         </div>
@@ -85,6 +83,7 @@
           }
         }
         heroHeading
+        mainCopy
         attentionCopy
       }
     }

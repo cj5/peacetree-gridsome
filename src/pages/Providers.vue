@@ -9,7 +9,7 @@
       <section class="providers-intro">
         <div class="container">
           <div class="mxw-800 center">
-            <p class="italic fz-lg" v-html="staticProviders.providersIntroCopy1"></p>
+            <p class="intro-1 italic" v-html="staticProviders.providersIntroCopy1"></p>
             <a class="scroll" v-html="staticProviders.providersIntroCopy2"></a>
           </div>
         </div>

@@ -1,0 +1,12 @@
+
+- Move G map embed to a component
+
+- Finish building out pages
+
+- Responsive layout
+
+- Accessibility
+
+- Meta info for SEO
+
+- Cross browser/device compatibility testing

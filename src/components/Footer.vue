@@ -29,12 +29,15 @@
             </div>
             <div class="module">
               <div class="module-item">
+                <i class="fas fa-external-link-alt"></i>
                 <a :href="staticFooter.link1Url" target="_blank">{{ staticFooter.link1Copy }}</a>
               </div>
               <div class="module-item">
+                <i class="fas fa-external-link-alt"></i>
                 <a :href="staticFooter.link2Url" target="_blank">{{ staticFooter.link2Copy }}</a>
               </div>
               <div class="module-item">
+                <i class="fas fa-external-link-alt"></i>
                 <a :href="staticFooter.link3Url" target="_blank">{{ staticFooter.link3Copy }}</a>
               </div>
             </div>

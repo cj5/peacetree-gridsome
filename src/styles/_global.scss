@@ -126,11 +126,6 @@ img {
   font-weight: 600;
 }
 
-.attention {
-  color: $color-attention;
-  font-weight: 600;
-}
-
 .filter {
   position: absolute;
   top: 0;
@@ -187,16 +182,14 @@ img {
   }
   &:hover {
     color: $color-main;
-    .arrow {
-      transform: translateX(-5*$px) rotate(180deg);
+    [class*='arrow'] {
+      transform: translateX(-5*$px);
     }
   }
-  .arrow {
+  [class*='arrow'] {
     position: relative;
     display: inline-block;
-    transform: rotate(180deg);
-    font-size: 20*$px;
-    margin-right: 4*$px;
+    margin-right: 8*$px;
     @include transition;
   }
 }

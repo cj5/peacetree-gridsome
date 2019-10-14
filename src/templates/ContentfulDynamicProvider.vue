@@ -14,7 +14,7 @@
         </div>
       </section>
       <div class="container">
-        <g-link exact to="/providers" class="back"><span class="arrow">&#10140;</span>&nbsp;Back to all Providers</g-link>
+        <g-link exact to="/providers" class="back"><i class="fas fa-arrow-left"></i>Back to all Providers</g-link>
       </div>
       <section class="provider-background">
         <div class="container">
@@ -137,7 +137,23 @@ export default {
   },
   methods: {
     isMultipleLocations(str) {
-      return str.indexOf(' ') >= 0
+      return str.includes(' and ')
+
+      // IE 11 Polyfill for includes()
+      if (!String.prototype.includes) {
+        String.prototype.includes = function(search, start) {
+          'use strict';
+          if (typeof start !== 'number') {
+            start = 0;
+          }
+          if (start + search.length > this.length) {
+            return false;
+          } else {
+            return this.indexOf(search, start) !== -1;
+          }
+        };
+      }
+      // END
     }
   }
 }

@@ -34,7 +34,7 @@
   max-width: $page-mxw;
   background-color: #fff;
   border-bottom: 2*$px solid $color-1;
-  box-shadow: 0 3*$px 5*$px 0 rgba(#000, 0.1);
+  box-shadow: 0 3*$px 5*$px 0 rgba(#000, 0.15);
   z-index: 999;
 }
 .header-wrap {
@@ -112,7 +112,7 @@
         margin-right: 0;
       }
     }
-    i {
+    .fas {
       margin-right: 6*$px;
     }
     a {
@@ -120,10 +120,10 @@
       &:after {
         height: 1*$px;
         bottom: 2*$px;
-        background-color: $gray-60;
+        background-color: $color-main;
       }
       &:hover {
-        color: $gray-60;
+        color: $color-main;
       }
     }
   }
