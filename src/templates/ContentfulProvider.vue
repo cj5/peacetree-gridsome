@@ -18,7 +18,7 @@
       </div>
       <section class="provider-background">
         <div class="container">
-          <div class="content-wrap">
+          <div class="content-wrap pb-3">
             <div class="img-wrap">
               <g-image :src="provider.providerImages[1].file.url" v-if="provider.providerImages[1]" />
               <g-image :src="provider.providerImages[0].file.url" v-else />
@@ -29,16 +29,15 @@
       </section>
       <section class="provider-info">
         <div class="container">
-          <div class="info-item mxw-800">
+          <div class="info-item mxw-820">
             <h2 class="subheading">{{ staticProvider.providerLocationHeading }}<span v-if="isMultipleLocations(provider.providerLocation)">s</span></h2>
-            <p v-if="provider.providerLocationCustom" v-html="provider.providerLocationCustom"></p>
-            <p v-else>{{ provider.providerLocation }}</p>
+            <p>{{ provider.providerLocation }}</p>
           </div>
-          <div class="info-item mxw-800">
+          <div class="info-item mxw-820">
             <h2 class="subheading">{{ staticProvider.providerPopulationsHeading }}</h2>
             <p>{{ provider.providerPopulationsServed }}</p>
           </div>
-          <div class="info-item mxw-800">
+          <div class="info-item mxw-820">
             <h2 class="subheading">{{ staticProvider.providerInterestsHeading }}</h2>
             <p>{{ provider.providerSpecialInterests }}</p>
           </div>
@@ -62,7 +61,6 @@ query contentfulProvider($path: String!) {
     providerPronouns
     providerBackground
     providerLocation
-    providerLocationCustom
     providerPopulationsServed
     providerSpecialInterests
   }
@@ -129,7 +127,7 @@ export default {
   name: 'ContentfulProviders',
   computed: {
     provider() {
-      return this.$page.ContentfulProvider
+      return this.$page.contentfulProvider
     },
     staticProvider() {
       return this.$page.allContentfulProviderPage.edges[0].node

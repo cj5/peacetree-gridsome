@@ -8,7 +8,7 @@
       </section>
       <section class="providers-intro">
         <div class="container">
-          <div class="mxw-800 center">
+          <div class="mxw-820 center">
             <p class="intro-1" v-html="staticProviders.providersIntroCopy1"></p>
             <a class="scroll" v-html="staticProviders.providersIntroCopy2"></a>
           </div>

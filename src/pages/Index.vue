@@ -10,7 +10,7 @@
       </section>
       <section class="home-copy">
         <div class="container">
-          <div class="mxw-800">
+          <div class="mxw-820">
             <div v-html="staticHome.mainCopy"></div>
             <p class="attention">{{ staticHome.attentionCopy }}</p>
           </div>

@@ -179,7 +179,7 @@ img {
 }
 
 [class*='mxw-'] { margin: 0 auto; }
-.mxw-800 { max-width: 800*$px; }
+.mxw-820 { max-width: 820*$px; }
 .mxw-650 { max-width: 650*$px; }
 .mxw-500 { max-width: 500*$px; }
 
@@ -236,6 +236,9 @@ img {
 }
 .mr-5 {
   margin-right: 50px;
+}
+.pb-3 {
+  padding-bottom: 30px;
 }
 .center {
   text-align: center;
