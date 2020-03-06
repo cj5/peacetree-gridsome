@@ -9,7 +9,7 @@
       <section class="providers-intro">
         <div class="container">
           <div class="mxw-800 center">
-            <p class="intro-1 italic" v-html="staticProviders.providersIntroCopy1"></p>
+            <p class="intro-1" v-html="staticProviders.providersIntroCopy1"></p>
             <a class="scroll" v-html="staticProviders.providersIntroCopy2"></a>
           </div>
         </div>
@@ -40,7 +40,7 @@
 
 <page-query>
 {
-  allContentfulStaticGlobal {
+  allContentfulGlobal {
     edges {
       node {
         companyName
@@ -52,7 +52,7 @@
       }
     }
   }
-  allContentfulStaticProviderPage {
+  allContentfulProviderPage {
     edges {
       node {
         providersHeading
@@ -61,7 +61,7 @@
       }
     }
   }
-  allContentfulDynamicProvider(sortBy: "order", order: ASC) {
+  allContentfulProvider(sortBy: "order", order: ASC) {
     edges {
       node {
         providerImages {
@@ -78,7 +78,7 @@
       }
     }
   }
-  allContentfulStaticContactInfo {
+  allContentfulContactInfo {
     edges {
       node {
         phoneNumber
@@ -87,7 +87,7 @@
       }
     }
   }
-  allContentfulStaticFooter {
+  allContentfulFooter {
     edges {
       node {
         link1Copy
@@ -99,7 +99,7 @@
       }
     }
   }
-  allContentfulStaticGlobal {
+  allContentfulGlobal {
     edges {
       node {
         companyName
@@ -119,10 +119,10 @@ export default {
   name: 'Providers',
   computed: {
     staticProviders() {
-      return this.$page.allContentfulStaticProviderPage.edges[0].node
+      return this.$page.allContentfulProviderPage.edges[0].node
     },
     providers() {
-      return this.$page.allContentfulDynamicProvider.edges
+      return this.$page.allContentfulProvider.edges
     }
   },
   mounted() {

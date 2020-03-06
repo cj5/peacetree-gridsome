@@ -21,8 +21,10 @@ $gray-20: darken(#fff, 20%);
 $gray-10: darken(#fff, 10%);
 $gray-5: darken(#fff, 5%);
 $color-main: $gray-80;
-$color-1: #52a0ba;
-$color-1-dk: darken($color-1, 10%);
+$color-1: #36758a;
+$color-1-lt: lighten(#36758a, 5%);
+// $color-1: #52a0ba;
+// $color-1-dk: darken($color-1, 10%);
 $color-attention: darken(red, 5%);
 
 // FONT SIZING

@@ -48,7 +48,9 @@
       <div class="copyright">
         <div class="container">
           <div class="copy-wrap">
-            <p>&copy; <span class="year">{{ year }}</span>{{ staticGlobal.companyName }}</p>
+            <p>&copy; {{ year }}</p>
+            <g-image :src="staticGlobal.companyLogo.file.url" />
+            <p>{{ staticGlobal.companyName }}</p>
           </div>
         </div>
       </div>
@@ -58,7 +60,7 @@
 
 <page-query>
 {
-  allContentfulStaticContactInfo {
+  allContentfulContactInfo {
     edges {
       node {
         phoneNumber
@@ -67,7 +69,7 @@
       }
     }
   }
-  allContentfulStaticFooter {
+  allContentfulFooter {
     edges {
       node {
         link1Copy
@@ -79,7 +81,7 @@
       }
     }
   }
-  allContentfulStaticGlobal {
+  allContentfulGlobal {
     edges {
       node {
         companyName
@@ -99,13 +101,13 @@ export default {
   name: 'Footer',
   computed: {
     staticGlobal() {
-      return this.$page.allContentfulStaticGlobal.edges[0].node
+      return this.$page.allContentfulGlobal.edges[0].node
     },
     staticContact() {
-      return this.$page.allContentfulStaticContactInfo.edges[0].node
+      return this.$page.allContentfulContactInfo.edges[0].node
     },
     staticFooter() {
-      return this.$page.allContentfulStaticFooter.edges[0].node
+      return this.$page.allContentfulFooter.edges[0].node
     },
     year() {
       return new Date().getFullYear()

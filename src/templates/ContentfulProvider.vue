@@ -50,8 +50,8 @@
 </template>
 
 <page-query>
-query DynamicProvider($path: String!) {
-  contentfulDynamicProvider(path: $path) {
+query contentfulProvider($path: String!) {
+  contentfulProvider(path: $path) {
     providerImages {
       file {
         url
@@ -66,7 +66,7 @@ query DynamicProvider($path: String!) {
     providerPopulationsServed
     providerSpecialInterests
   }
-  allContentfulStaticProviderPage {
+  allContentfulProviderPage {
     edges {
       node {
         providerPronounsHeading
@@ -76,7 +76,7 @@ query DynamicProvider($path: String!) {
       }
     }
   }
-  allContentfulStaticContactInfo {
+  allContentfulContactInfo {
     edges {
       node {
         phoneNumber
@@ -85,7 +85,7 @@ query DynamicProvider($path: String!) {
       }
     }
   }
-  allContentfulStaticFooter {
+  allContentfulFooter {
     edges {
       node {
         link1Copy
@@ -97,7 +97,7 @@ query DynamicProvider($path: String!) {
       }
     }
   }
-  allContentfulStaticGlobal {
+  allContentfulGlobal {
     edges {
       node {
         companyName
@@ -109,7 +109,7 @@ query DynamicProvider($path: String!) {
       }
     }
   }
-  allContentfulStaticGlobal {
+  allContentfulGlobal {
     edges {
       node {
         companyName
@@ -129,10 +129,10 @@ export default {
   name: 'ContentfulProviders',
   computed: {
     provider() {
-      return this.$page.contentfulDynamicProvider
+      return this.$page.ContentfulProvider
     },
     staticProvider() {
-      return this.$page.allContentfulStaticProviderPage.edges[0].node
+      return this.$page.allContentfulProviderPage.edges[0].node
     }
   },
   methods: {

@@ -15,8 +15,11 @@ main {
       font-family: $font-alt;
       font-size: 42*$px;
       color: #fff;
-      text-shadow: 2*$px 2*$px 2*$px $gray-70;
+      text-shadow: 2*$px 2*$px 2*$px rgba(#000, 0.7);
       z-index: 9;
+    }
+    .filter {
+      background-color: rgba(#fff, 0);
     }
   }
   .home-copy {
@@ -27,7 +30,6 @@ main {
     }
   }
   .attention {
-    color: $color-1;
     font-weight: 600;
     margin-top: 30*$px;
   }
@@ -84,10 +86,6 @@ main {
 }
 
 .providers-page {
-  .intro-1 {
-    font-size: 32*$px;
-    line-height: 1.3;
-  }
   .scroll {
     margin-top: 40*$px;
     font-weight: bold;
@@ -132,7 +130,7 @@ main {
   .provider-name {
     font-size: 24*$px;
     font-weight: bold;
-    color: $color-1-dk;
+    color: $color-1;
     margin: 10*$px 0 12*$px;
     padding-bottom: 14*$px;
     border-bottom: 1*$px solid $gray-20;
@@ -163,7 +161,7 @@ main {
   .provider-creds {
     font-size: 22*$px;
     margin-left: 14*$px;
-    color: $color-1-dk;
+    color: $color-1;
   }
   .pronouns-heading,
   .pronouns {
@@ -216,8 +214,16 @@ main {
       font-size: 32*$px;
       font-family: $font-alt;
       // font-style: italic;
-      color: $color-1-dk;
+      color: $color-1;
       margin-bottom: 20*$px;
+    }
+  }
+} // .provider-page
+
+.scheduling-page {
+  a {
+    &:hover {
+      color: $color-main;
     }
   }
 }

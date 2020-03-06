@@ -12,7 +12,7 @@
 
 <page-query>
 {
-  allContentfulStaticContactInfo {
+  allContentfulContactInfo {
     edges {
       node {
         phoneNumber
@@ -21,7 +21,7 @@
       }
     }
   }
-  allContentfulStaticFooter {
+  allContentfulFooter {
     edges {
       node {
         link1Copy
@@ -33,19 +33,7 @@
       }
     }
   }
-  allContentfulStaticGlobal {
-    edges {
-      node {
-        companyName
-        companyLogo {
-          file {
-            url
-          }
-        }
-      }
-    }
-  }
-  allContentfulStaticGlobal {
+  allContentfulGlobal {
     edges {
       node {
         companyName

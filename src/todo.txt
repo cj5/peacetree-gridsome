@@ -1,6 +1,8 @@
 
 - Move G map embed to a component
 
+- Look into having static content type even for areas with multiple paragraphs
+
 - Finish building out pages
 
 - Responsive layout

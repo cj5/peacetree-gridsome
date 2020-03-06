@@ -74,7 +74,7 @@
 
 <page-query>
 {
-  allContentfulStaticHomePage {
+  allContentfulHomePage {
     edges {
       node {
         heroImage {
@@ -88,7 +88,7 @@
       }
     }
   }
-  allContentfulStaticLocationInfo {
+  allContentfulLocationInfo {
     edges {
       node {
         locationsHeading
@@ -116,15 +116,7 @@
       }
     }
   }
-  allContentfulDynamicHomeParagraph(sortBy: "order", order: ASC) {
-    edges {
-      node {
-        paragraph
-        order
-      }
-    }
-  }
-  allContentfulStaticContactInfo {
+  allContentfulContactInfo {
     edges {
       node {
         phoneNumber
@@ -133,7 +125,7 @@
       }
     }
   }
-  allContentfulStaticFooter {
+  allContentfulFooter {
     edges {
       node {
         link1Copy
@@ -145,7 +137,7 @@
       }
     }
   }
-  allContentfulStaticGlobal {
+  allContentfulGlobal {
     edges {
       node {
         companyName
@@ -164,10 +156,10 @@
 export default {
   computed: {
     staticHome() {
-      return this.$page.allContentfulStaticHomePage.edges[0].node
+      return this.$page.allContentfulHomePage.edges[0].node
     },
     staticLocation() {
-      return this.$page.allContentfulStaticLocationInfo.edges[0].node
+      return this.$page.allContentfulLocationInfo.edges[0].node
     }
   },
   mounted() {

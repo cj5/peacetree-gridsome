@@ -15,6 +15,6 @@ module.exports = {
     }
   ],
   templates: {
-    ContentfulDynamicProvider: '/providers/:title'
+    ContentfulProvider: '/providers/:title'
   }
 }

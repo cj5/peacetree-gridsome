@@ -10,7 +10,7 @@
 
 <page-query>
 {
-  allContentfulStaticGlobal {
+  allContentfulGlobal {
     edges {
       node {
         companyName
