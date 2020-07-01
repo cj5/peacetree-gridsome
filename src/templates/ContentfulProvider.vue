@@ -27,19 +27,21 @@
           </div>
         </div>
       </section>
-      <section class="provider-info">
+      <section class="provider-info bg-img">
         <div class="container">
-          <div class="info-item mxw-820">
-            <h2 class="subheading">{{ staticProvider.providerLocationHeading }}<span v-if="isMultipleLocations(provider.providerLocation)">s</span></h2>
-            <p>{{ provider.providerLocation }}</p>
-          </div>
-          <div class="info-item mxw-820">
-            <h2 class="subheading">{{ staticProvider.providerPopulationsHeading }}</h2>
-            <p>{{ provider.providerPopulationsServed }}</p>
-          </div>
-          <div class="info-item mxw-820">
-            <h2 class="subheading">{{ staticProvider.providerInterestsHeading }}</h2>
-            <p>{{ provider.providerSpecialInterests }}</p>
+          <div class="mxw-820">
+            <div class="info-item card">
+              <h2 class="subheading">{{ staticProvider.providerLocationHeading }}<span v-if="isMultipleLocations(provider.providerLocation)">s</span></h2>
+              <p>{{ provider.providerLocation }}</p>
+            </div>
+            <div class="info-item card">
+              <h2 class="subheading">{{ staticProvider.providerPopulationsHeading }}</h2>
+              <p>{{ provider.providerPopulationsServed }}</p>
+            </div>
+            <div class="info-item card">
+              <h2 class="subheading">{{ staticProvider.providerInterestsHeading }}</h2>
+              <p>{{ provider.providerSpecialInterests }}</p>
+            </div>
           </div>
         </div>
         <div class="filter"></div>
@@ -74,15 +76,6 @@ query contentfulProvider($path: String!) {
       }
     }
   }
-  allContentfulContactInfo {
-    edges {
-      node {
-        phoneNumber
-        faxNumber
-        emailAddress
-      }
-    }
-  }
   allContentfulFooter {
     edges {
       node {
@@ -104,18 +97,9 @@ query contentfulProvider($path: String!) {
             url
           }
         }
-      }
-    }
-  }
-  allContentfulGlobal {
-    edges {
-      node {
-        companyName
-        companyLogo {
-          file {
-            url
-          }
-        }
+        phoneNumber
+        faxNumber
+        emailAddress
       }
     }
   }

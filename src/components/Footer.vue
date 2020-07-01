@@ -14,17 +14,17 @@
               <div class="module-item">
                 <i class="fas fa-phone"></i>
                 <p>Phone: </p>
-                <a :href="`tel:${formatPhone(staticContact.phoneNumber)}`">{{ staticContact.phoneNumber }}</a>
+                <a :href="`tel:${formatPhone(staticGlobal.phoneNumber)}`">{{ staticGlobal.phoneNumber }}</a>
               </div>
               <div class="module-item">
                 <i class="fas fa-fax"></i>
                 <p>Fax: </p>
-                <p>{{ staticContact.faxNumber }}</p>
+                <p>{{ staticGlobal.faxNumber }}</p>
               </div>
               <div class="module-item">
                 <i class="fas fa-envelope"></i>
                 <p>Email: </p>
-                <a :href="`mailto:${staticContact.emailAddress}`">{{ staticContact.emailAddress }}</a>
+                <a :href="`mailto:${staticGlobal.emailAddress}`">{{ staticGlobal.emailAddress }}</a>
               </div>
             </div>
             <div class="module">
@@ -60,15 +60,6 @@
 
 <page-query>
 {
-  allContentfulContactInfo {
-    edges {
-      node {
-        phoneNumber
-        faxNumber
-        emailAddress
-      }
-    }
-  }
   allContentfulFooter {
     edges {
       node {
@@ -90,6 +81,9 @@
             url
           }
         }
+        phoneNumber
+        faxNumber
+        emailAddress
       }
     }
   }
@@ -102,9 +96,6 @@ export default {
   computed: {
     staticGlobal() {
       return this.$page.allContentfulGlobal.edges[0].node
-    },
-    staticContact() {
-      return this.$page.allContentfulContactInfo.edges[0].node
     },
     staticFooter() {
       return this.$page.allContentfulFooter.edges[0].node

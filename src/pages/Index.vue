@@ -16,58 +16,7 @@
           </div>
         </div>
       </section>
-      <section class="locations">
-        <div class="container">
-          <h2 class="heading-2">{{ staticLocation.locationsHeading }}</h2>
-          <div class="flex-grid">
-            <div class="item item-1">
-              <h3 class="subheading">{{ staticLocation.location1City }}</h3>
-              <div class="map">
-                <div class="map-wrap">
-                  <iframe 
-                    width="100%" 
-                    height="400" 
-                    frameborder="0" 
-                    scrolling="no" 
-                    marginheight="0" 
-                    marginwidth="0" 
-                    :src="`https://maps.google.com/maps?q=${staticLocation.location1Map.lat},${staticLocation.location1Map.lon}&hl=es;z=14&amp;output=embed`"
-                  >
-                  </iframe>
-                </div>
-                <div class="filter">
-                  <p>Loading map...</p>
-                </div>
-              </div>
-            </div>
-            <div class="item item-2">
-              <h3 class="subheading">{{ staticLocation.location2City }}</h3>
-              <div class="map">
-                <div class="map-wrap">
-                  <iframe 
-                    width="100%" 
-                    height="400" 
-                    frameborder="0" 
-                    scrolling="no" 
-                    marginheight="0" 
-                    marginwidth="0" 
-                    :src="`https://maps.google.com/maps?q=${staticLocation.location2Map.lat},${staticLocation.location2Map.lon}&hl=es;z=14&amp;output=embed`"
-                  >
-                  </iframe>
-                </div>
-                <div class="filter">
-                  <p>Loading map...</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="filter"></div>
-      </section>
-      <section class="location-image">
-        <g-image :src="staticLocation.locationImage.file.url" />
-        <div class="filter"></div>
-      </section>
+      <Locations />
     </div>
   </Layout>
 </template>
@@ -116,15 +65,6 @@
       }
     }
   }
-  allContentfulContactInfo {
-    edges {
-      node {
-        phoneNumber
-        faxNumber
-        emailAddress
-      }
-    }
-  }
   allContentfulFooter {
     edges {
       node {
@@ -146,6 +86,9 @@
             url
           }
         }
+        phoneNumber
+        faxNumber
+        emailAddress
       }
     }
   }
@@ -153,21 +96,17 @@
 </page-query>
 
 <script>
+import Locations from '../components/Locations'
+
 export default {
+  components: {
+    Locations,
+  },
   computed: {
     staticHome() {
       return this.$page.allContentfulHomePage.edges[0].node
     },
-    staticLocation() {
-      return this.$page.allContentfulLocationInfo.edges[0].node
-    }
   },
-  mounted() {
-    console.log(this.staticLocation.location1MapEmbedUrl)
-  }
-  // metaInfo: {
-  //   title: 'Hello, world!'
-  // }
 }
 </script>
 

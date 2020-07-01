@@ -78,15 +78,6 @@
       }
     }
   }
-  allContentfulContactInfo {
-    edges {
-      node {
-        phoneNumber
-        faxNumber
-        emailAddress
-      }
-    }
-  }
   allContentfulFooter {
     edges {
       node {
@@ -108,6 +99,9 @@
             url
           }
         }
+        phoneNumber
+        faxNumber
+        emailAddress
       }
     }
   }

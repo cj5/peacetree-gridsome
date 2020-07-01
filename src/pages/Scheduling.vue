@@ -12,16 +12,28 @@
             <p class="intro-1" v-html="staticScheduling.schedulingIntroCopy1"></p>
             <p v-html="staticScheduling.schedulingIntroCopy2"></p>
             <i class="fas fa-phone"></i>
-            <a :href="`tel:${formatPhone(staticContact.phoneNumber)}`">{{ staticContact.phoneNumber }}</a>
+            <a :href="`tel:${formatPhone(staticGlobal.phoneNumber)}`">{{ staticGlobal.phoneNumber }}</a>
           </div>
           <div class="flex mt-8">
-            <div class="flex-20 mr-5">
+            <div class="flex-20 item-1">
               <g-image :src="staticGlobal.companyLogo.file.url" />
             </div>
             <div>
-              <h2 class="heading-2" v-html="staticScheduling.whatToExpectHeading"></h2>
-              <p v-html="staticScheduling.whatToExpectCopy"></p>
+              <h2 class="heading-2" v-html="staticScheduling.sessionInfoHeading"></h2>
+              <p v-html="staticScheduling.sessionInfoCopy"></p>
             </div>
+          </div>
+        </div>
+      </section>
+      <section class="scheduling-info bg-img">
+        <div class="mxw-820 mt-5">
+          <div 
+            v-for="(i, key) in infoSectionContent"
+            :key="key"
+            class="info-section card"
+          >
+            <h3 class="subheading">{{ i.heading }}</h3>
+            <p v-html="i.copy"></p>
           </div>
         </div>
       </section>
@@ -37,23 +49,14 @@
         schedulingHeading
         schedulingIntroCopy1
         schedulingIntroCopy2
-        whatToExpectHeading
-        whatToExpectCopy
+        sessionInfoHeading
+        sessionInfoCopy
         costHeading
         costCopy
         paymentHeading
         paymentCopy
         cancellationPolicyHeading
         cancellationPolicyCopy
-      }
-    }
-  }
-  allContentfulContactInfo {
-    edges {
-      node {
-        phoneNumber
-        faxNumber
-        emailAddress
       }
     }
   }
@@ -78,6 +81,9 @@
             url
           }
         }
+        phoneNumber
+        faxNumber
+        emailAddress
       }
     }
   }
@@ -91,16 +97,29 @@ export default {
     staticScheduling() {
       return this.$page.allContentfulSchedulingPage.edges[0].node
     },
-    staticContact() {
-      return this.$page.allContentfulContactInfo.edges[0].node
-    },
     staticGlobal() {
       return this.$page.allContentfulGlobal.edges[0].node
     },
+    infoSectionContent() {
+      return [
+        {
+          heading: this.staticScheduling.costHeading,
+          copy: this.staticScheduling.costCopy
+        },
+        {
+          heading: this.staticScheduling.paymentHeading,
+          copy: this.staticScheduling.paymentCopy
+        },
+        {
+          heading: this.staticScheduling.cancellationPolicyHeading,
+          copy: this.staticScheduling.cancellationPolicyCopy
+        }
+      ]
+    }
   },
   methods: {
-    formatPhone(phone) {
-      return phone.replace(/\D/g,'')
+    formatPhone(number) {
+      return number.replace(/\D/g,'')
     }
   },
   metaInfo: {
