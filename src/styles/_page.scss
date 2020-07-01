@@ -33,55 +33,56 @@ main {
     font-weight: 600;
     margin-top: 30*$px;
   }
-  .locations {
+}
+
+.locations {
+  position: relative;
+  background-image: url('../images/bg.png');
+  margin-top: 80*$px;
+  padding: 60*$px 0 80*$px 0;
+  border-top: 2*$px solid $gray-5;
+  border-bottom: 2*$px solid $gray-5;
+  *:not(.filter) {
     position: relative;
-    background-image: url('../images/bg.png');
-    margin-top: 80*$px;
-    padding: 60*$px 0 80*$px 0;
-    border-top: 2*$px solid $gray-5;
-    border-bottom: 2*$px solid $gray-5;
-    *:not(.filter) {
+    z-index: 9;
+  }
+  .flex-grid {
+    @include flex-grid(2, 80*$px);
+  }
+  [class*='heading'] {
+    margin-bottom: 40*$px;
+  }
+  .subheading {
+    margin-bottom: 20*$px;
+    font-size: 28*$px;
+  }
+  .map {
+    display: flex;
+    @include border;
+    @include box-shadow;
+    .map-wrap {
       position: relative;
+      display: flex;
+      width: 100%;
       z-index: 9;
     }
-    .flex-grid {
-      @include flex-grid(2, 80*$px);
-    }
-    [class*='heading'] {
-      margin-bottom: 40*$px;
-    }
-    .subheading {
-      margin-bottom: 20*$px;
-      font-size: 28*$px;
-    }
-    .map {
-      display: flex;
-      @include border;
-      @include box-shadow;
-      .map-wrap {
-        position: relative;
-        display: flex;
-        width: 100%;
-        z-index: 9;
-      }
-      .filter {
-        @include filter(#fff, 1);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 1;
-      }
-    }
     .filter {
-      @include filter(#fff, 0.3);
+      @include filter(#fff, 1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
     }
   }
-  .location-image {
-    position: relative;
-    display: flex;
-    .filter {
-      @include filter(#fff, 0);
-    }
+  .filter {
+    @include filter(#fff, 0.3);
+  }
+}
+.location-image {
+  position: relative;
+  display: flex;
+  .filter {
+    @include filter(#fff, 0);
   }
 }
 
@@ -188,27 +189,9 @@ main {
     }
   }
   .provider-info {
-    position: relative;
-    margin-top: 50*$px;
-    padding: 70*$px 0;
-    background-image: url('../images/bg.png');
-    border-top: 2*$px solid $gray-5;
     *:not(.filter) {
       position: relative;
       z-index: 9;
-    }
-    .info-item {
-      border: 2*$px solid $gray-30;
-      background-color: #fff;
-      padding: 20*$px;
-      margin-bottom: 40*$px;
-      @include box-shadow;
-      &:last-of-type {
-        margin-bottom: 0;
-      }
-      p {
-        font-size: 18*$px;
-      }
     }
     .subheading {
       font-size: 32*$px;
@@ -221,9 +204,83 @@ main {
 } // .provider-page
 
 .scheduling-page {
+  .item-1 {
+    margin-right: 100px;
+  }
   a {
     &:hover {
       color: $color-main;
+    }
+  }
+}
+.scheduling-info {
+  padding-top: 30px;
+  .subheading {
+    margin-bottom: 40px;
+  }
+  .info-section {
+    padding-bottom: 40px;
+  }
+}
+
+.employment-page {
+  .position {
+    padding-bottom: 80px;
+  }
+  .subheading {
+    font-size: 24px;
+  }
+  li {
+    margin-bottom: 0;
+  }
+}
+
+.contact-page {
+  .locations {
+    background-image: none;
+    border-top: none;
+    margin-top: 0;
+    padding-top: 0;
+  }
+  .contact-details {
+    margin-top: 0;
+    border: none;
+    .flex-grid {
+      @include flex-grid(2, 80px);
+      .card {
+        flex: 1;
+      }
+    }
+    .item-2 {
+      display: flex;
+      flex-direction: column;
+      ul {
+        margin-bottom: 50px;
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+      li {
+        margin-bottom: 5px;
+      }
+    }
+  }
+  table {
+    width: 100%;
+    tr {
+      &:last-of-type {
+        td {
+          border: none;
+        }
+      }
+    }
+    td {
+      width: 50%;
+      padding: 5px 0;
+      border-bottom: 1px solid $gray-30;
+      &:first-of-type {
+        font-weight: bold;
+      }
     }
   }
 }
