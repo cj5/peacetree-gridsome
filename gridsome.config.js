@@ -2,6 +2,8 @@ require('dotenv').config()
 
 module.exports = {
   siteName: 'Peace Tree Counseling',
+  siteDescription: 'Helping you find your way in a complicated world',
+  titleTemplate: 'Peace Tree Counseling — %s',
   plugins: [
     {
       use: '@gridsome/source-contentful',
