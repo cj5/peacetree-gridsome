@@ -46,6 +46,7 @@
             </div>
           </div>
         </div>
+        <div class="filter"></div>
       </div>
     </div>
   </Layout>

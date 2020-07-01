@@ -7,7 +7,7 @@
         </div>
       </section>
       <div class="container">
-        <div class="mxw-820 pb-8">
+        <div class="mxw-820 pb-3">
           <div 
             v-for="(i, key) in positionOpenings" 
             :key="key"
@@ -18,16 +18,23 @@
             <h3 class="subheading">{{ staticEmploymentPage.requirementsHeading }}</h3>
             <p v-html="i.node.positionRequirements"></p>
           </div>
-          <div>
-            <h3 class="subheading">{{ staticEmploymentPage.mailHeading }}</h3>
-            <ul class="mb-3">
-              <li v-html="staticGlobal.mailingAddressLine1"></li>
-              <li v-html="staticGlobal.mailingAddressLine2"></li>
-              <li v-html="staticGlobal.mailingAddressLine3"></li>
-            </ul>
-            <p>Or mail to: <a :href="`mailto:${staticGlobal.emailAddress}`">{{ staticGlobal.emailAddress }}</a></p>
+        </div>
+      </div>
+      <div class="bg-img">
+        <div class="container">
+          <div class="flex jcc">
+            <div class="card">
+              <h3 class="subheading">{{ staticEmploymentPage.mailHeading }}</h3>
+              <ul class="mb-3">
+                <li v-html="staticGlobal.mailingAddressLine1"></li>
+                <li v-html="staticGlobal.mailingAddressLine2"></li>
+                <li v-html="staticGlobal.mailingAddressLine3"></li>
+              </ul>
+              <p>Or mail to: <a :href="`mailto:${staticGlobal.emailAddress}`">{{ staticGlobal.emailAddress }}</a></p>
+            </div>
           </div>
         </div>
+        <div class="filter"></div>
       </div>
     </div>
   </Layout>

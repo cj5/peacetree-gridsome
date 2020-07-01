@@ -88,6 +88,9 @@ main {
 
 .providers-page {
   .scroll {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: 40*$px;
     font-weight: bold;
     &:after {
@@ -95,6 +98,18 @@ main {
     }
     &:hover {
       color: $gray-60;
+      .icon {
+        transform: translateY(10px);
+      }
+    }
+    .icon {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      stroke-width: 0;
+      stroke: currentColor;
+      fill: currentColor;
+      @include transition;
     }
   }
   .providers-section {
@@ -216,19 +231,19 @@ main {
 .scheduling-info {
   padding-top: 30px;
   .subheading {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
   }
   .info-section {
-    padding-bottom: 40px;
+    padding-bottom: 30px;
   }
 }
 
 .employment-page {
   .position {
     padding-bottom: 80px;
-  }
-  .subheading {
-    font-size: 24px;
+    &:last-of-type {
+      padding-bottom: 0;
+    }
   }
   li {
     margin-bottom: 0;
@@ -264,6 +279,10 @@ main {
         margin-bottom: 5px;
       }
     }
+  }
+  [class*='heading'] {
+    position: relative;
+    z-index: 9;
   }
   table {
     width: 100%;

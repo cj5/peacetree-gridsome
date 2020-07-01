@@ -14,7 +14,7 @@
             <i class="fas fa-phone"></i>
             <a :href="`tel:${formatPhone(staticGlobal.phoneNumber)}`">{{ staticGlobal.phoneNumber }}</a>
           </div>
-          <div class="flex mt-8">
+          <div class="flex aic mt-8">
             <div class="flex-20 item-1">
               <g-image :src="staticGlobal.companyLogo.file.url" />
             </div>
@@ -36,6 +36,7 @@
             <p v-html="i.copy"></p>
           </div>
         </div>
+        <div class="filter"></div>
       </section>
     </div>
   </Layout>

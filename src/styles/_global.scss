@@ -123,6 +123,7 @@ img {
   font-family: $font-alt;
 }
 .subheading {
+  font-size: 24px;
   font-weight: 600;
 }
 
@@ -135,10 +136,12 @@ img {
 }
 
 .card {
+  position: relative;
   border: 2*$px solid $gray-30;
   background-color: #fff;
   padding: 20*$px;
   margin-bottom: 40*$px;
+  z-index: 9;
   @include box-shadow;
   &:last-of-type {
     margin-bottom: 0;
@@ -222,6 +225,9 @@ img {
   }
 }
 
+.dib {
+  display: inline-block;
+}
 .flex {
   display: flex;
 }

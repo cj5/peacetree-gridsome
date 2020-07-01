@@ -10,7 +10,16 @@
         <div class="container">
           <div class="mxw-820 center">
             <p class="intro-1" v-html="staticProviders.providersIntroCopy1"></p>
-            <a class="scroll" v-html="staticProviders.providersIntroCopy2"></a>
+            <div class="dib">
+              <a class="scroll">
+                <span v-html="staticProviders.providersIntroCopy2"></span>
+                <symbol id="icon-chevron-down" viewBox="0 0 24 24">
+                <path d="M5.293 9.707l6 6c0.391 0.391 1.024 0.391 1.414 0l6-6c0.391-0.391 0.391-1.024 0-1.414s-1.024-0.391-1.414 0l-5.293 5.293-5.293-5.293c-0.391-0.391-1.024-0.391-1.414 0s-0.391 1.024 0 1.414z"></path>
+                </symbol>
+                <svg class="icon icon-chevron-down"><use xlink:href="#icon-chevron-down"></use></svg>
+                <!-- <span class="arrow-down">❯</span> -->
+              </a>
+            </div>
           </div>
         </div>
       </section>
