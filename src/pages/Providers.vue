@@ -11,11 +11,15 @@
           <div class="mxw-820 center">
             <p class="intro-1" v-html="staticProviders.providersIntroCopy1"></p>
             <div class="dib">
-              <a class="scroll">
+              <a class="scroll" tabindex="0">
                 <span v-html="staticProviders.providersIntroCopy2"></span>
-                <symbol id="icon-chevron-down" viewBox="0 0 24 24">
-                <path d="M5.293 9.707l6 6c0.391 0.391 1.024 0.391 1.414 0l6-6c0.391-0.391 0.391-1.024 0-1.414s-1.024-0.391-1.414 0l-5.293 5.293-5.293-5.293c-0.391-0.391-1.024-0.391-1.414 0s-0.391 1.024 0 1.414z"></path>
-                </symbol>
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="hide">
+                  <defs>
+                    <symbol id="icon-chevron-down" viewBox="0 0 24 24">
+                      <path d="M5.293 9.707l6 6c0.391 0.391 1.024 0.391 1.414 0l6-6c0.391-0.391 0.391-1.024 0-1.414s-1.024-0.391-1.414 0l-5.293 5.293-5.293-5.293c-0.391-0.391-1.024-0.391-1.414 0s-0.391 1.024 0 1.414z"></path>
+                    </symbol>
+                  </defs>
+                </svg>
                 <svg class="icon icon-chevron-down"><use xlink:href="#icon-chevron-down"></use></svg>
                 <!-- <span class="arrow-down">❯</span> -->
               </a>
@@ -27,11 +31,11 @@
         <div class="container">
           <div class="providers-grid">
 
-            <g-link :to="i.node.path" class="provider-module" v-for="(i, key) in providers" :key="key">
+            <g-link :to="i.node.path" class="provider-module no-line" v-for="(i, key) in providers" :key="key">
               <g-image :src="i.node.providerImages[0].file.url" />
               <div class="copy-wrap">
                 <h2 class="provider-name">
-                  <span>{{ i.node.providerName }}</span> 
+                  <span>{{ i.node.providerName }}</span>
                   <span class="provider-creds" v-if="i.node.providerCreds">{{ i.node.providerCreds }}</span>
                 </h2>
                 <p class="provider-position">{{ i.node.providerPosition }}</p>
@@ -118,6 +122,8 @@
 </page-query>
 
 <script>
+import { smoothScroll } from '../utilities';
+
 export default {
   name: 'Providers',
   computed: {
@@ -133,86 +139,10 @@ export default {
     const scrollTrigger = document.querySelector('.scroll')
     const scrollDestination = document.querySelector('.providers-section')
 
-    // https://pawelgrzybek.com/page-scroll-in-vanilla-javascript/
-    function smoothScroll(destination, duration = 200, easing = 'easeInOutQuad', callback) {
-      const easings = {
-        linear(t) {
-          return t;
-        },
-        easeInQuad(t) {
-          return t * t;
-        },
-        easeOutQuad(t) {
-          return t * (2 - t);
-        },
-        easeInOutQuad(t) {
-          return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-        },
-        easeInCubic(t) {
-          return t * t * t;
-        },
-        easeOutCubic(t) {
-          return (--t) * t * t + 1;
-        },
-        easeInOutCubic(t) {
-          return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
-        },
-        easeInQuart(t) {
-          return t * t * t * t;
-        },
-        easeOutQuart(t) {
-          return 1 - (--t) * t * t * t;
-        },
-        easeInOutQuart(t) {
-          return t < 0.5 ? 8 * t * t * t * t : 1 - 8 * (--t) * t * t * t;
-        },
-        easeInQuint(t) {
-          return t * t * t * t * t;
-        },
-        easeOutQuint(t) {
-          return 1 + (--t) * t * t * t * t;
-        },
-        easeInOutQuint(t) {
-          return t < 0.5 ? 16 * t * t * t * t * t : 1 + 16 * (--t) * t * t * t * t;
-        }
-      };
-
-      const start = window.pageYOffset;
-      const startTime = 'now' in window.performance ? performance.now() : new Date().getTime();
-
-      const documentHeight = Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);
-      const windowHeight = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
-      const destinationOffset = typeof destination === 'number' ? destination : destination.offsetTop - headerOffset;
-      const destinationOffsetToScroll = Math.round(documentHeight - destinationOffset < windowHeight ? documentHeight - windowHeight : destinationOffset);
-
-      if ('requestAnimationFrame' in window === false) {
-        window.scroll(0, destinationOffsetToScroll);
-        if (callback) {
-          callback();
-        }
-        return;
-      }
-
-      function scroll() {
-        const now = 'now' in window.performance ? performance.now() : new Date().getTime();
-        const time = Math.min(1, ((now - startTime) / duration));
-        const timeFunction = easings[easing](time);
-        window.scroll(0, Math.ceil((timeFunction * (destinationOffsetToScroll - start)) + start));
-
-        if (window.pageYOffset === destinationOffsetToScroll) {
-          if (callback) {
-            callback();
-          }
-          return;
-        }
-
-        requestAnimationFrame(scroll);
-      }
-
-      scroll();
-    }
-
-    scrollTrigger.addEventListener('click', () => smoothScroll(scrollDestination));
+    scrollTrigger.addEventListener('click', () => smoothScroll(scrollDestination, headerOffset));
+    scrollTrigger.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') smoothScroll(scrollDestination, headerOffset);
+    });
   },
   metaInfo: {
     title: 'Providers'

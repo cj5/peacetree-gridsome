@@ -57,9 +57,10 @@ $vpw-xl: 1200px;
 $vpw-lg: 992px;
 $vpw-md: 768px;
 $vpw-sm: 576px;
-$vpw-xs: 400px;
+$vpw-xs: 420px;
+$vpw-2xs: 375px;
 
-$vpw-nav: $vpw-lg;
+$vpw-nav: $vpw-md;
 $mxw-nav: '(max-width: #{$vpw-nav - 1px})';
 
 // MEDIA QUERIES
@@ -68,7 +69,9 @@ $mxw-lg: '(max-width: #{$vpw-lg - 1px})';
 $mxw-md: '(max-width: #{$vpw-md - 1px})';
 $mxw-sm: '(max-width: #{$vpw-sm - 1px})';
 $mxw-xs: '(max-width: #{$vpw-xs - 1px})';
+$mxw-2xs: '(max-width: #{$vpw-2xs - 1px})';
 
+$mnw-2xs: '(min-width: #{$vpw-2xs})';
 $mnw-xs: '(min-width: #{$vpw-xs})';
 $mnw-sm: '(min-width: #{$vpw-sm})';
 $mnw-md: '(min-width: #{$vpw-md})';

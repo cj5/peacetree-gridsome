@@ -2,7 +2,7 @@
   transition: 0.2s all ease-in-out;
 }
 
-@mixin flex-grid($cols, $gutter: 0) {
+@mixin flex-grid($cols, $gutter: 0, $mt: $gutter) {
   display: flex;
   flex-wrap: wrap;
   > * {
@@ -13,7 +13,10 @@
     width: $item-width;
     box-sizing: border-box;
     &:nth-child(n+#{$cols + 1}) {
-      margin-top: $gutter;
+      margin-top: $mt;
+    }
+    &:nth-child(#{$cols}n+1) {
+      margin-right: $gutter - 0.0625;
     }
     &:nth-child(#{$cols}n) {
       margin-right: 0;

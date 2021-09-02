@@ -2,7 +2,8 @@
   <Layout>
     <div class="home-page">
       <section class="hero">
-        <g-image :src="staticHome.heroImage.file.url" />
+        <!-- <g-image :src="staticHome.heroImage.file.url" /> -->
+        <div class="img" :style="`background-image: url(https:${staticHome.heroImage.file.url});`"></div>
         <div class="container">
           <h2 class="hero-heading">{{ staticHome.heroHeading }}</h2>
         </div>
@@ -109,4 +110,3 @@ export default {
   },
 }
 </script>
-

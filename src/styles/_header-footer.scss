@@ -9,9 +9,27 @@
     align-items: center;
     color: $color-1;
     @include transition;
+    &.mobile {
+      display: none;
+      @media #{$mxw-nav} {
+        display: block;
+        position: absolute;
+        top: 10*$px;
+        left: 20*$px;
+        height: auto;
+        display: inline-block;
+        img {
+          width: 80*$px;
+          height: auto;
+          @media #{$mxw-md} {
+            width: 65*$px;
+          }
+        }
+      }
+    }
     .site-name {
       font-family: $font-heading;
-      font-family: 'Oleo Script';
+      font-family: $font-alt;
       font-size: 24*$px;
       margin: 0 0 0 15*$px;
     }
@@ -43,6 +61,20 @@
   justify-content: space-between;
   align-items: center;
   @include transition;
+  @media #{$mxw-nav} {
+    height: $short-header-ht;
+    .logo img {
+      @include logo-height(50*$px);
+    }
+  }
+}
+.navicon {
+  display: none;
+  @media #{$mxw-nav} {
+    display: block;
+    font-size: 40*$px;
+    margin-left: 15*$px;
+  }
 }
 .nav {
   ul {
@@ -51,6 +83,9 @@
   li {
     margin-left: 30*$px;
     margin-bottom: 0;
+    @media #{$mxw-lg} {
+      margin-left: 20*$px;
+    }
     &:first-of-type {
       margin-left: 0;
     }
@@ -59,6 +94,48 @@
     font-size: 18*$px;
     font-weight: bold;
     color: $color-1-lt;
+    @media #{$mxw-lg} {
+      font-size: 15*$px;
+    }
+  }
+  .close {
+    display: none;
+  }
+  // .nav
+  @media #{$mxw-nav} {
+    position: fixed;
+    background-color: #fff;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 2000*$px;
+    @include transition;
+    &.open {
+      top: 0;
+      left: 0;
+    }
+    ul {
+      position: absolute;
+      right: 0;
+      top: 60*$px;
+      flex-direction: column;
+      margin: 30*$px 30*$px 0;
+    }
+    li {
+      margin-left: 0;
+      margin-bottom: 15*$px;
+      text-align: right;
+    }
+    a {
+      font-size: 20*$px;
+    }
+    .close {
+      position: absolute;
+      top: 0*$px;
+      right: 25*$px;
+      display: block;
+      font-size: 50*$px;
+    }
   }
 }
 
@@ -89,6 +166,14 @@
   }
   .module-wrap {
     @include flex-grid(2, 40*$px);
+    @media #{$mxw-lg} {
+      @include flex-grid(2, 20*$px);
+    }
+    @media #{$mxw-md} {
+      flex-direction: column;
+      max-width: 440px;
+      margin: 0 auto;
+    }
   }
   .module {
     display: flex;
@@ -98,11 +183,21 @@
     @include border;
     @include box-shadow;
     overflow: hidden;
+    @media #{$mxw-lg} {
+      padding: 15*$px;
+    }
+    @media #{$mxw-md} {
+      width: 100%;
+      &:first-of-type {
+        margin: 0 0 20px;
+      }
+    }
   }
   .module-item {
     display: flex;
     align-items: center;
     margin-bottom: 20*$px;
+    flex-wrap: wrap;
     &:last-of-type {
       margin-bottom: 0;
     }
@@ -122,6 +217,18 @@
       &:hover {
         color: $color-main;
       }
+    }
+    @media #{$mxw-lg} {
+      p,
+      a { font-size: 16*$px; }
+    }
+    @media #{$mxw-md} {
+      p,
+      a { font-size: 18*$px; }
+    }
+    @media #{$mxw-sm} {
+      p,
+      a { font-size: 16*$px; }
     }
   }
   .copyright {

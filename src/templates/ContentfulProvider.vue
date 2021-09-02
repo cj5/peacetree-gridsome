@@ -4,8 +4,8 @@
       <section class="page-heading">
         <div class="container">
           <h1 class="heading">
-            <span>{{ provider.providerName }}</span>
-            <span class="provider-creds">{{ provider.providerCreds }}</span>
+            <span class="provider-name">{{ provider.providerName }}</span>&#8239;
+            <span class="provider-creds no-wrap">{{ provider.providerCreds }}</span>
           </h1>
           <p class="provider-pronouns">
             <span class="pronouns-heading">{{ staticProvider.providerPronounsHeading }}</span>

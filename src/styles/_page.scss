@@ -1,10 +1,25 @@
 main {
   margin-top: $header-ht;
+  @media #{$mxw-nav} {
+    margin-top: $short-header-ht;
+  }
 }
 .home-page {
   .hero {
     position: relative;
     margin-bottom: 80*$px;
+    @media #{$mxw-lg} {
+      margin-bottom: 50*$px;
+    }
+    .img {
+      height: 560*$px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: 50%;
+      @media #{$mxw-md} {
+        height: 460*$px;
+      }
+    }
     img {
       display: flex;
     }
@@ -15,8 +30,13 @@ main {
       font-family: $font-alt;
       font-size: 42*$px;
       color: #fff;
+      margin: 0;
+      padding-right: 20*$px;
       text-shadow: 2*$px 2*$px 2*$px rgba(#000, 0.7);
       z-index: 9;
+      @media #{$mxw-lg} {
+        font-size: 36*$px;
+      }
     }
     .filter {
       background-color: rgba(#fff, 0);
@@ -42,12 +62,25 @@ main {
   padding: 60*$px 0 80*$px 0;
   border-top: 2*$px solid $gray-5;
   border-bottom: 2*$px solid $gray-5;
+  @media #{$mxw-lg} {
+    margin-top: 50*$px;
+    padding: 40*$px 0 60*$px 0;
+  }
   *:not(.filter) {
     position: relative;
     z-index: 9;
   }
   .flex-grid {
     @include flex-grid(2, 80*$px);
+    @media #{$mxw-lg} {
+      @include flex-grid(2, 30*$px);
+    }
+    @media #{$mxw-md} {
+      @include flex-grid(1, 0*$px);
+      .item-1 {
+        margin-bottom: 50*$px;
+      }
+    }
   }
   [class*='heading'] {
     margin-bottom: 40*$px;
@@ -118,26 +151,36 @@ main {
     margin: 50*$px 0 0;
     padding: 80*$px 0;
     border-top: 2*$px solid $gray-5;
+    @media #{$mxw-lg} {
+      margin: 40*$px 0 0;
+      padding: 60*$px 0;
+    }
   }
   .providers-grid {
-    @include flex-grid(3, 30*$px);
+    @include flex-grid(3, 40*$px);
     position: relative;
     z-index: 9;
+    @media #{$mxw-lg} {
+      @include flex-grid(2, 30*$px);
+    }
+    @media #{$mxw-md} {
+      @include flex-grid(2, 20*$px);
+    }
+    @media #{$mxw-sm} {
+      @include flex-grid(1, 0*$px);
+    }
   }
   .provider-module {
     padding: 20*$px;
     background-color: #fff;
     @include border;
     @include box-shadow;
-    &:after {
-      background-color: $gray-30;
+    @media #{$mxw-sm} {
+      margin-bottom: 30*$px;
     }
     &:hover {
-      border-color: $gray-80;
+      border-color: $color-1;
       @include box-shadow(0, 0, transparent);
-      &:after {
-        background-color: $gray-80;
-      }
     }
     img {
       border: 1*$px solid $gray-20;
@@ -174,9 +217,11 @@ main {
   .page-heading {
     padding: 35px 0 20px;
   }
+  .provider-name {
+    margin-right: 4*$px;
+  }
   .provider-creds {
     font-size: 22*$px;
-    margin-left: 14*$px;
     color: $color-1;
   }
   .pronouns-heading,
@@ -192,6 +237,9 @@ main {
     .content-wrap {
       display: flex;
       align-items: flex-start;
+      @media #{$mxw-md} {
+        flex-direction: column;
+      }
       * {
         flex-basis: 100%;
       }
@@ -201,6 +249,12 @@ main {
       max-width: 270*$px;
       margin-right: 50*$px;
       border: 1*$px solid $gray-20;
+      @media #{$mxw-lg} {
+        margin-right: 30*$px;
+      }
+      @media #{$mxw-md} {
+        margin: 0 0 30*$px;
+      }
     }
   }
   .provider-info {
@@ -219,8 +273,34 @@ main {
 } // .provider-page
 
 .scheduling-page {
+  .flex {
+    margin-top: 80*$px;
+    @media #{$mxw-lg} {
+      margin-top: 60*$px;
+    }
+    @media #{$mxw-sm} {
+      flex-direction: column;
+    }
+  }
   .item-1 {
     margin-right: 100px;
+    @media #{$mxw-xl} {
+      margin-right: 70px;
+    }
+    @media #{$mxw-lg} {
+      margin-right: 50px;
+    }
+    @media #{$mxw-md} {
+      margin-right: 30px;
+    }
+    @media #{$mxw-sm} {
+      margin: 0 0 30*$px;
+      text-align: center;
+      img {
+        width: 80%;
+        max-width: 150px;
+      }
+    }
   }
   a {
     &:hover {
@@ -230,6 +310,12 @@ main {
 }
 .scheduling-info {
   padding-top: 30px;
+  [class*='mxw'] {
+    margin-top: 50*$px;
+    @media #{$mxw-lg} {
+      margin-top: 20*$px;
+    }
+  }
   .subheading {
     margin-bottom: 30px;
   }
@@ -261,9 +347,28 @@ main {
     margin-top: 0;
     border: none;
     .flex-grid {
-      @include flex-grid(2, 80px);
+      @include flex-grid(2, 80*$px);
+      @media #{$mxw-xl} {
+        @include flex-grid(2, 50*$px);
+      }
+      @media #{$mxw-lg} {
+        @include flex-grid(2, 30*$px);
+      }
+      @media #{$mxw-md} {
+        flex-direction: column;
+        max-width: 440*$px;
+        margin: 0 auto;
+        .item {
+          width: 100%;
+        }
+      }
       .card {
         flex: 1;
+      }
+    }
+    .item-1 {
+      @media #{$mxw-md} {
+        margin-bottom: 40*$px;
       }
     }
     .item-2 {
@@ -294,11 +399,12 @@ main {
       }
     }
     td {
-      width: 50%;
+      width: 60%;
       padding: 5px 0;
       border-bottom: 1px solid $gray-30;
       &:first-of-type {
         font-weight: bold;
+        width: 40%;
       }
     }
   }

@@ -14,7 +14,7 @@ h5 {
   font-family: $font-heading;
   font-weight: normal;
   margin-bottom: 20px;
-  line-height: 1;
+  line-height: 1.2;
 }
 h1 {
   font-size: $fz-xxl;
@@ -47,7 +47,7 @@ a {
     width: 0;
     height: 2*$px;
     left: 0;
-    bottom: -2*$px;
+    bottom: 0;
     background-color: transparent;
     @include transition;
   }
@@ -63,6 +63,11 @@ a {
   &.no-active-style:after {
     background-color: transparent;
     height: 0;
+  }
+  &.no-line {
+    &:after {
+      height: 0;
+    }
   }
 }
 ul,
@@ -109,6 +114,9 @@ img {
   padding: 30*$px 0 25*$px;
   margin-bottom: 70*$px;
   border-bottom: 2*$px solid $gray-10;
+  @media #{$mxw-lg} {
+    margin-bottom: 45*$px;
+  }
   .heading {
     margin-bottom: 0;
   }
@@ -133,6 +141,14 @@ img {
   padding: 70*$px 0;
   background-image: url('../images/bg.png');
   border-top: 2*$px solid $gray-5;
+  @media #{$mxw-lg} {
+    margin-top: 40*$px;
+    padding: 55*$px 0;
+  }
+  @media #{$mxw-md} {
+    margin-top: 30*$px;
+    padding: 45*$px 0 55*$px;
+  }
 }
 
 .card {
@@ -257,6 +273,7 @@ img {
 .mt-8 { margin-top: 80px; }
 .mt-5 { margin-top: 50px; }
 .mt-3 { margin-top: 30px; }
+.mt-1 { margin-top: 10px; }
 
 // margin-bottom
 .mb-8 { margin-bottom: 80px; }
@@ -284,4 +301,12 @@ img {
 
 .bold {
   font-weight: bold;
+}
+
+.hide {
+  display: none;
+}
+
+.no-wrap {
+  white-space: nowrap;
 }

@@ -50,7 +50,7 @@ export default {
     }
   },
   mounted() {
-    window.addEventListener('scroll', e => {
+    window.addEventListener('scroll', () => {
       this.isShortHeader()
     })
   }

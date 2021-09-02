@@ -11,10 +11,12 @@
           <div class="center mxw-650">
             <p class="intro-1" v-html="staticScheduling.schedulingIntroCopy1"></p>
             <p v-html="staticScheduling.schedulingIntroCopy2"></p>
-            <i class="fas fa-phone"></i>
-            <a :href="`tel:${formatPhone(staticGlobal.phoneNumber)}`">{{ staticGlobal.phoneNumber }}</a>
+            <div class="mt-1">
+              <i class="fas fa-phone"></i>
+              <a :href="`tel:${formatPhone(staticGlobal.phoneNumber)}`">{{ staticGlobal.phoneNumber }}</a>
+            </div>
           </div>
-          <div class="flex aic mt-8">
+          <div class="flex">
             <div class="flex-20 item-1">
               <g-image :src="staticGlobal.companyLogo.file.url" />
             </div>
@@ -26,14 +28,16 @@
         </div>
       </section>
       <section class="scheduling-info bg-img">
-        <div class="mxw-820 mt-5">
-          <div 
-            v-for="(i, key) in infoSectionContent"
-            :key="key"
-            class="info-section card"
-          >
-            <h3 class="subheading">{{ i.heading }}</h3>
-            <p v-html="i.copy"></p>
+        <div class="container">
+          <div class="mxw-820">
+            <div
+              v-for="(i, key) in infoSectionContent"
+              :key="key"
+              class="info-section card"
+            >
+              <h3 class="subheading">{{ i.heading }}</h3>
+              <p v-html="i.copy"></p>
+            </div>
           </div>
         </div>
         <div class="filter"></div>
