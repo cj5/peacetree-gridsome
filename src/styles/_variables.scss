@@ -1,9 +1,5 @@
 $px: 0.0625rem;
 
-$page-mxw: 1920*$px;
-$header-ht: 100*$px;
-$short-header-ht: 70*$px;
-
 // FONTS
 $font-heading: 'Lexend Deca', Helvetica, Arial, sans-serif;
 $font-body: 'Questrial', Helvetica, sans-serif;
@@ -77,3 +73,8 @@ $mnw-sm: '(min-width: #{$vpw-sm})';
 $mnw-md: '(min-width: #{$vpw-md})';
 $mnw-lg: '(min-width: #{$vpw-lg})';
 $mnw-xl: '(min-width: #{$vpw-xl})';
+
+// APP SPECIFIC
+$page-mxw: 1920*$px;
+$header-ht: 100*$px;
+$short-header-ht: 70*$px;

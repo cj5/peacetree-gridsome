@@ -20,8 +20,13 @@
         <div class="container">
           <div class="content-wrap pb-3">
             <div class="img-wrap">
-              <g-image :src="provider.providerImages[1].file.url" v-if="provider.providerImages[1]" />
-              <g-image :src="provider.providerImages[0].file.url" v-else />
+              <template v-if="provider.providerImages.length">
+                <g-image :src="provider.providerImages[1].file.url" v-if="provider.providerImages[1]" />
+                <g-image :src="provider.providerImages[0].file.url" v-else />
+              </template>
+              <template v-else>
+                <g-image src="~/images/providers/placeholder.jpg" />
+              </template>
             </div>
             <p v-html="provider.providerBackground"></p>
           </div>

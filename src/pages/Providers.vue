@@ -32,7 +32,8 @@
           <div class="providers-grid">
 
             <g-link :to="i.node.path" class="provider-module no-line" v-for="(i, key) in providers" :key="key">
-              <g-image :src="i.node.providerImages[0].file.url" />
+              <g-image :src="i.node.providerImages[0].file.url" v-if="i.node.providerImages.length" />
+              <g-image src="~/images/providers/placeholder.jpg" v-else />
               <div class="copy-wrap">
                 <h2 class="provider-name">
                   <span>{{ i.node.providerName }}</span>

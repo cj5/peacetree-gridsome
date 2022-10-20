@@ -100,6 +100,7 @@
 import Locations from '../components/Locations'
 
 export default {
+  name: 'Index',
   components: {
     Locations,
   },
@@ -108,5 +109,8 @@ export default {
       return this.$page.allContentfulHomePage.edges[0].node
     },
   },
+  metaInfo: {
+    title: 'Home',
+  }
 }
 </script>

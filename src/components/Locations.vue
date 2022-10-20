@@ -7,13 +7,13 @@
           <h3 class="subheading">{{ staticLocation.location1City }}</h3>
           <div class="map">
             <div class="map-wrap">
-              <iframe 
-                width="100%" 
-                height="400" 
-                frameborder="0" 
-                scrolling="no" 
-                marginheight="0" 
-                marginwidth="0" 
+              <iframe
+                width="100%"
+                height="400"
+                frameborder="0"
+                scrolling="no"
+                marginheight="0"
+                marginwidth="0"
                 :src="`https://maps.google.com/maps?q=${staticLocation.location1Map.lat},${staticLocation.location1Map.lon}&hl=es;z=14&amp;output=embed`"
               >
               </iframe>
@@ -27,13 +27,13 @@
           <h3 class="subheading">{{ staticLocation.location2City }}</h3>
           <div class="map">
             <div class="map-wrap">
-              <iframe 
-                width="100%" 
-                height="400" 
-                frameborder="0" 
-                scrolling="no" 
-                marginheight="0" 
-                marginwidth="0" 
+              <iframe
+                width="100%"
+                height="400"
+                frameborder="0"
+                scrolling="no"
+                marginheight="0"
+                marginwidth="0"
                 :src="`https://maps.google.com/maps?q=${staticLocation.location2Map.lat},${staticLocation.location2Map.lon}&hl=es;z=14&amp;output=embed`"
               >
               </iframe>
