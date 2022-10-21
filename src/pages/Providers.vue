@@ -40,7 +40,7 @@
                   <span class="provider-creds" v-if="i.node.providerCreds">{{ i.node.providerCreds }}</span>
                 </h2>
                 <p class="provider-position">{{ i.node.providerPosition }}</p>
-                <p class="provider-supervisor" v-if="i.node.providerSupervisor">{{ i.node.providerSupervisor }}</p>
+                <p class="provider-supervisor" v-if="i.node.providerSupervisor">{{ staticProviders.providerSupervisorLeadIn }} {{ i.node.providerSupervisor }}</p>
                 <p class="provider-location">{{ i.node.providerLocation }}</p>
               </div>
             </g-link>
@@ -73,6 +73,7 @@
         providersHeading
         providersIntroCopy1
         providersIntroCopy2
+        providerSupervisorLeadIn
       }
     }
   }
