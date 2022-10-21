@@ -205,11 +205,16 @@ main {
     line-height: 1.25;
     font-style: italic;
     color: $color-main;
-    margin-bottom: 10*$px;
+    margin-bottom: 0;
+  }
+  .provider-supervisor {
+    font-size: 14*$px;
+    margin-bottom: 0;
   }
   .provider-location {
     font-size: 16*$px;
     color: $gray-60;
+    margin-top: 10*$px;
   }
 }
 
