@@ -66,14 +66,6 @@
           lon
           lat
         }
-        location2City
-        location2Address
-        location2State
-        location2Zip
-        location2Map {
-          lon
-          lat
-        }
       }
     }
   }
