@@ -2,7 +2,7 @@
   <section class="locations">
     <div class="container">
       <h2 class="heading-2">{{ staticLocation.locationsHeading }}</h2>
-      <div class="flex-grid">
+      <div :class="`${staticLocation.location2City ? 'flex-grid' : ''}`">
         <div class="item item-1">
           <h3 class="subheading">{{ staticLocation.location1City }}</h3>
           <div class="map">
@@ -15,15 +15,14 @@
                 marginheight="0"
                 marginwidth="0"
                 :src="`https://maps.google.com/maps?q=${staticLocation.location1Map.lat},${staticLocation.location1Map.lon}&hl=es;z=14&amp;output=embed`"
-              >
-              </iframe>
+              ></iframe>
             </div>
             <div class="filter">
               <p>Loading map...</p>
             </div>
           </div>
         </div>
-        <div class="item item-2">
+        <div v-if="staticLocation.location2City" class="item item-2">
           <h3 class="subheading">{{ staticLocation.location2City }}</h3>
           <div class="map">
             <div class="map-wrap">
@@ -35,8 +34,7 @@
                 marginheight="0"
                 marginwidth="0"
                 :src="`https://maps.google.com/maps?q=${staticLocation.location2Map.lat},${staticLocation.location2Map.lon}&hl=es;z=14&amp;output=embed`"
-              >
-              </iframe>
+              ></iframe>
             </div>
             <div class="filter">
               <p>Loading map...</p>
