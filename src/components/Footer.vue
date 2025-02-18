@@ -13,17 +13,17 @@
             <div class="module">
               <div class="module-item">
                 <i class="fas fa-phone"></i>
-                <p>Phone: </p>
+                <p>Phone:</p>
                 <a :href="`tel:${formatPhone(staticGlobal.phoneNumber)}`">{{ staticGlobal.phoneNumber }}</a>
               </div>
               <div class="module-item">
                 <i class="fas fa-fax"></i>
-                <p>Fax: </p>
+                <p>Fax:</p>
                 <p>{{ staticGlobal.faxNumber }}</p>
               </div>
               <div class="module-item">
                 <i class="fas fa-envelope"></i>
-                <p>Email: </p>
+                <p>Email:</p>
                 <a :href="`mailto:${staticGlobal.emailAddress}`">{{ staticGlobal.emailAddress }}</a>
               </div>
             </div>
@@ -95,19 +95,19 @@ export default {
   name: 'Footer',
   computed: {
     staticGlobal() {
-      return this.$page.allContentfulGlobal.edges[0].node
+      return this.$page.allContentfulGlobal.edges[0].node;
     },
     staticFooter() {
-      return this.$page.allContentfulFooter.edges[0].node
+      return this.$page.allContentfulFooter.edges[0].node;
     },
     year() {
-      return new Date().getFullYear()
-    }
+      return new Date().getFullYear();
+    },
   },
   methods: {
     formatPhone(phone) {
-      return phone.replace(/\D/g,'')
-    }
-  }
-}
+      return phone.replace(/\D/g, '');
+    },
+  },
+};
 </script>
