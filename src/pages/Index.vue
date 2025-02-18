@@ -89,7 +89,7 @@
 </page-query>
 
 <script>
-import Locations from '../components/Locations'
+import Locations from '../components/Locations';
 
 export default {
   name: 'Index',
@@ -98,11 +98,11 @@ export default {
   },
   computed: {
     staticHome() {
-      return this.$page.allContentfulHomePage.edges[0].node
+      return this.$page.allContentfulHomePage.edges[0].node;
     },
   },
   metaInfo: {
     title: 'Home',
-  }
-}
+  },
+};
 </script>
