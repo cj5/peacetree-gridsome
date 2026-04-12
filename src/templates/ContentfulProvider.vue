@@ -21,8 +21,8 @@
           <div class="content-wrap pb-3">
             <div class="img-wrap">
               <template v-if="provider.providerImages.length">
-                <g-image :src="provider.providerImages[1].file.url" v-if="provider.providerImages[1]" />
-                <g-image :src="provider.providerImages[0].file.url" v-else />
+                <g-image :src="provider.providerImages[1].file.url + '?t=' + cacheBust" v-if="provider.providerImages[1]" />
+                <g-image :src="provider.providerImages[0].file.url + '?t=' + cacheBust" v-else />
               </template>
               <template v-else>
                 <g-image src="~/images/providers/placeholder.jpg" />
@@ -120,6 +120,9 @@ export default {
     },
     staticProvider() {
       return this.$page.allContentfulProviderPage.edges[0].node
+    },
+    cacheBust() {
+      return Date.now()
     }
   },
   methods: {
