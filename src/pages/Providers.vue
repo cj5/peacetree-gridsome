@@ -23,7 +23,6 @@
                   </defs>
                 </svg>
                 <svg class="icon icon-chevron-down"><use xlink:href="#icon-chevron-down"></use></svg>
-                <!-- <span class="arrow-down">❯</span> -->
               </a>
             </div>
           </div>
